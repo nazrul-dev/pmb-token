@@ -2,8 +2,8 @@
 
 namespace App\Traits;
 
-use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
-use Ramsey\Uuid\Uuid as Generator;
+use App\Models\Token;
+use Webpatser\Uuid\Uuid as UuidUuid;
 
 trait Uuid
 {
@@ -11,12 +11,9 @@ trait Uuid
     {
         parent::boot();
 
-        static::creating(function ($model) {
-            try {
-                $model->uuid = Generator::uuid4()->toString();
-            } catch (UnsatisfiedDependencyException $e) {
-                abort(500, $e->getMessage());
-            }
+        static::creating(function (Token $token) {
+            $token->uuid =  (string) UuidUuid::generate(4);
+
         });
     }
 }

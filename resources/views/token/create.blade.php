@@ -48,7 +48,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-i">
                 <div class="clearfix"></div>
             </div>
 

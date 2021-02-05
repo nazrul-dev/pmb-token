@@ -14,7 +14,7 @@ class CreateBiodatasTable extends Migration
     public function up()
     {
         Schema::create('biodata', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('uuid');
             $table->foreignId('maba_id');
             $table->text('nama_lengkap');
             $table->string('no_registrasi');

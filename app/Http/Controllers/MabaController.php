@@ -20,7 +20,7 @@ class MabaController extends Controller
 
     public function berkas($id)
     {
-        $id = Crypt::decryptString($id);
+
         if (auth()->user()->akses == 'maba' || auth()->user()->akses == 'panitia' || auth()->user()->akses == 'superadmin') {
             $user = User::with(['maba.biodata'])->find($id);
             return view('maba.berkas', compact('user'));
@@ -39,7 +39,7 @@ class MabaController extends Controller
             'ktp'                   => 'image|mimes:png,jpg,jpeg',
         ]);
 
-        $id = Crypt::decryptString($request->id);
+        $id = $request->id;
 
         $biodata = Biodata::findOrFail($id);
 
@@ -182,7 +182,7 @@ class MabaController extends Controller
     public function show($id)
     {
 
-        $id = Crypt::decryptString($id);
+      
         if (auth()->user()->akses == 'maba' || auth()->user()->akses == 'panitia' || auth()->user()->akses == 'superadmin') {
             $user = User::with(['maba.token', 'maba.biodata', 'maba.biodata.getfakultas', 'maba.biodata.getprodi'])->find($id);
             $statusberkas = Maba::cekberkas($user->maba->biodata->id);
@@ -196,7 +196,7 @@ class MabaController extends Controller
     public function edit($id)
     {
         $faculties = Faculty::get();
-        $id = Crypt::decryptString($id);
+      
         if (auth()->user()->akses == 'panitia' || auth()->user()->akses == 'superadmin') {
             $maba = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->find($id);
             return view('maba.edit', compact(['maba', 'faculties']));
@@ -208,8 +208,8 @@ class MabaController extends Controller
     public function update($id)
     {
 
-        $ids  = (int) Crypt::decryptString($id);
-        $biodata = Biodata::findOrFail($ids);
+      
+        $biodata = Biodata::findOrFail($id);
 
         $validator = Validator::make(request()->all(), [
 

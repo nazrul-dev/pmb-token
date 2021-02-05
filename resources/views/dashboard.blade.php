@@ -100,6 +100,13 @@
         
       </div>
     @endif
-
+    {!! $fakultasChart->container() !!}
+ 
     </section>
 @endsection
+@push('js')
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+
+{!! $fakultasChart->script() !!}
+@endpush

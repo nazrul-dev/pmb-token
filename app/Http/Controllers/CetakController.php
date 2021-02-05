@@ -14,7 +14,7 @@ class CetakController extends Controller
 
     public function formulir($id)
     {
-        $id = Crypt::decryptString($id);
+       
         $maba = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->find($id);
         $passphoto = 'media/berkas/' . $maba->biodata->passphoto;
         $pdf = PDF::loadView('cetak.formulir', compact('maba', 'passphoto'), [

@@ -33,16 +33,15 @@ class TokenController extends Controller
     }
 
   
-    public function store(Request $request)
+    public function store()
     {
         request()->validate([
 
             'email'     => 'required|unique:token,email',
 
         ]);
-    
-        $token = Token::create([
-            'id'        => (string) Uuid::generate(4),
+        
+       $token = Token::create([
             'email'     => request('email'),
             'gelombang' => $this->pengaturan()['data']->gelombang,
             'angkatan'  =>  $this->pengaturan()['data']->angkatan,
@@ -50,11 +49,9 @@ class TokenController extends Controller
             'password'  => Token::generate_password(),
         ]);
 
-        dd($token);
-
         // $this->send_email_token($token);
 
-        return redirect(route('back.token.show', $token['id']))->with('success', 'Berhasil Membuat Token Pendaftaran');
+        return redirect(route('back.token.show', $token['uuid']))->with('success', 'Berhasil Membuat Token Pendaftaran');
     }
 
    

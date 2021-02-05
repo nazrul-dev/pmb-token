@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {        
         User::create([
-           
+            
             'email' => 'superadmin@superadmin.com',
             'password' => bcrypt('password'),
             'akses'  => 'superadmin'
@@ -134,7 +134,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Pengaturan::create([
-            'id'        => 1,
+  
             'pmb'       => 1,
         ]);
     }
