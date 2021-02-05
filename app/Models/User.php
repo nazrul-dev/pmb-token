@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use Uuid, HasFactory, Notifiable;
     
-    protected $primaryKey = 'uuid';
+    protected $primaryKey = 'uuid';    
     public $incrementing = false;
     protected $keyType = 'string';
     /**
