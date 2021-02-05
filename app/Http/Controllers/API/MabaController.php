@@ -19,7 +19,7 @@ class MabaController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
                 $actionBtn = '
-                <a href="' . route('back.maba.show', Crypt::encryptString($row->user->id)) . '" class="btn btn-info  btn-xs"><i class="fa fa-eye"></i></a>';
+                <a href="' . route('back.maba.show', $row->user->uuid) . '" class="btn btn-info  btn-xs"><i class="fa fa-eye"></i></a>';
                 return $actionBtn;
             })
             ->addColumn('periode', function ($row) {
@@ -37,9 +37,9 @@ class MabaController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
                 $actionBtn = '
-                        <a href="' . route('back.maba.show', Crypt::encryptString($row->user->id)) . '" class="btn btn-info  btn-xs"><i class="fa fa-eye"></i></a> 
-                        <a href="' . route('back.maba.edit', Crypt::encryptString($row->id)) . '" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
-                        <a href="' . route('back.maba.berkas', Crypt::encryptString($row->user->id)) . '" class="delete btn btn-success btn-xs"><i class="fa fa-file"></i></a>';
+                        <a href="' . route('back.maba.show', $row->user->uuid) . '" class="btn btn-info  btn-xs"><i class="fa fa-eye"></i></a> 
+                        <a href="' . route('back.maba.edit', $row->uuid) . '" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
+                        <a href="' . route('back.maba.berkas', $row->user->uuid) . '" class="delete btn btn-success btn-xs"><i class="fa fa-file"></i></a>';
                 return $actionBtn;
             })
             ->rawColumns(['action'])

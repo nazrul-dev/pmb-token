@@ -21,13 +21,15 @@ class ProdiChart extends BaseChart
 
     public function handler(Request $request): Chartisan
     {
-        $prodi = Biodata::get();
-        $collection = collect($prodi);
-        $plucked =  $collection->pluck('name');
+        $maba = Biodata::with(['getprodi', 'getprodi.faculty'])->get();
+
+        dd($maba);
+        // $collection = collect($prodi);
+        // $plucked =  $collection->pluck('name');
      
-        return Chartisan::build()
-            ->labels([$plucked->values()])
-            ->dataset('Sample', [$plucked->keys()])
-            ->dataset('Sample 2', [3, 2, 1]);
+        // return Chartisan::build()
+        //     ->labels([$plucked->values()])
+        //     ->dataset('Sample', [$plucked->values()])
+        //     ->dataset('Sample 2', [3, 2, 1]);
     }
 }

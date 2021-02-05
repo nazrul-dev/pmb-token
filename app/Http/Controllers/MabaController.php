@@ -30,7 +30,6 @@ class MabaController extends Controller
     public function berkasUpload(Request $request)
     {
 
-
         $request->validate([
             'ijazah'                => 'image|mimes:png,jpg,jpeg',
             'passphoto'             => 'image|mimes:png,jpg,jpeg',

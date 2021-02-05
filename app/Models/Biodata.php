@@ -16,7 +16,7 @@ class Biodata extends Model
     protected $keyType = 'string';
 
     public function maba(){
-        return $this->belongsTo(Maba::class, 'maba_id');
+        return $this->belongsTo(Maba::class, 'maba_uuid');
     }
 
     public function getfakultas(){

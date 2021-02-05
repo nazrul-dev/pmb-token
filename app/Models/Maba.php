@@ -21,7 +21,7 @@ class Maba extends Model
     }
 
     public function token(){
-        return $this->belongsTo(Token::class, 'token_id');
+        return $this->belongsTo(Token::class, 'token_uuid');
     }
 
     public function biodata(){
