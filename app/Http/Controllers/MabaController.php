@@ -104,6 +104,7 @@ class MabaController extends Controller
 
         ]);
 
+       
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
@@ -131,17 +132,14 @@ class MabaController extends Controller
                 ]);
 
                 $maba = Maba::create([
-                    'user_id'       =>  $user->id,
-                    'token_id'      =>  $getByDataToken->id
+                    'user_id'       =>  $user->uuid,
+                    'token_id'      =>  $getByDataToken->uuid
                 ]);
 
                 $request->request->add([
                     'no_registrasi' => Biodata::generate_registrasi_number($getByDataToken->angkatan, $getByDataToken->gelombang),
-                    'maba_id'  => $maba->id
+                    'maba_id'  => $maba->uuid
                 ]);
-
-
-
 
 
                 Biodata::create($request->except(['email', 'token']));
@@ -158,7 +156,7 @@ class MabaController extends Controller
               
                 return redirect(route('after.store', $user->email));
             } catch (\Exception $e) {
-                return redirect()->back();
+                dd($e);
             }
         } else {
             return abort('404');

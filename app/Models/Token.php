@@ -11,11 +11,11 @@ class Token extends Model
 {
     use Uuid;
 
-    protected $table = "token";
-    protected $guarded = [];
-    protected $primaryKey = 'uuid';
-    public $incrementing = false;
-    protected $keyType = 'string';
+    protected $table        = "token";
+    protected $guarded      = [];
+    protected $primaryKey   = 'uuid';
+    public $incrementing    = false;
+    protected $keyType      = 'string';
     use HasFactory;
     
   

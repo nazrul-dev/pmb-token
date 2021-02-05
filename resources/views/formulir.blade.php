@@ -15,7 +15,7 @@
                 $('.fg-kec').hide();
                 $('.fg-kec').hide();
                 let id = $(this).val();
-                let url = "{{ url('/kabupaten/') }}"
+                let url = "{{ url('api/kabupaten/') }}"
                 $.ajax({
                     url: url + '/' + id,
                     method: 'GET',
@@ -32,7 +32,7 @@
 
             $('#kabupaten').on('change', function() {
                 let id = $(this).val();
-                let url = "{{ url('/kecamatan/') }}"
+                let url = "{{ url('api/kecamatan/') }}"
                 $.ajax({
                     url: url + '/' + id,
                     method: 'GET',
@@ -51,7 +51,7 @@
 
         function showStudy(id = '') {
 
-            var url = "{{ url('/prodi') }}";
+            var url = "{{ url('/api/prodi') }}";
 
             $.ajax({
                 url: url + '/' + id,

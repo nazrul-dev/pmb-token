@@ -1,9 +1,11 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Charts;
 
+use App\Models\Biodata;
+use App\Models\Faculty;
 use App\Models\Study;
 use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
@@ -12,17 +14,20 @@ use Illuminate\Http\Request;
 class ProdiChart extends BaseChart
 {
     public ?string $name = 'prodi_chart';
-    public ?string $routeName = 'back';
-    public ?string $prefix = 'back';
+    public ?string $routeName = 'prodi_chart';
+
 
     //public ?array $middlewares = ['auth'];
 
     public function handler(Request $request): Chartisan
     {
-        $prodi = Study::select(['name'])->get()->toArray();
+        $prodi = Biodata::get();
+        $collection = collect($prodi);
+        $plucked =  $collection->pluck('name');
+     
         return Chartisan::build()
-            ->labels($prodi)
-            ->dataset('Sample', [1, 2, 3])
+            ->labels([$plucked->values()])
+            ->dataset('Sample', [$plucked->keys()])
             ->dataset('Sample 2', [3, 2, 1]);
     }
 }

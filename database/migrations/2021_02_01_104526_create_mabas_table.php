@@ -15,8 +15,8 @@ class CreateMabasTable extends Migration
     {
         Schema::create('maba', function (Blueprint $table) {
             $table->uuid('uuid');
-            $table->foreignId('user_id');
-            $table->foreignId('token_id');
+            $table->uuid('user_id');
+            $table->uuid('token_id');
             $table->boolean('arsip')->default(false);
             $table->timestamps();
         });
