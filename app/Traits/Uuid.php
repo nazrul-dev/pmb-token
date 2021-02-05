@@ -9,11 +9,9 @@ trait Uuid
 {
     protected static function boot()
     {
-        parent::boot(); static::creating(function ($model) {
-            $model->uuid =  (string) UuidUuid::generate(4);
+        parent::boot(); 
         static::creating(function ($model) {
-            $model->uuid =  (string) UuidUuid::generate(4);
-
+            $model->uuid =  (string) Uuid::generate(4);
         });
     }
 }
