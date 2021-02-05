@@ -11,8 +11,8 @@ trait Uuid
     {
         parent::boot();
 
-        static::creating(function (Token $token) {
-            $token->uuid =  (string) UuidUuid::generate(4);
+        static::creating(function ($model) {
+            $model->uuid =  (string) UuidUuid::generate(4);
 
         });
     }
