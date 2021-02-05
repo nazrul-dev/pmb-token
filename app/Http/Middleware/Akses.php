@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
 
-class Admin
+class Akses
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,19 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$aksess)
     {
-        if (Auth::check() && Auth::user()->akses == 'admin' || Auth::user()->akses == 'superadmin') {
+        if(in_array($request->user()->akses, $aksess, true)){
             return $next($request);
         }
-        return redirect()->back()->with('error', 'Anda Tidak Memiliki Akses');
+       
+       return redirect()->back();
+
+        // if(Arr::has($aksess , $)){
+        //     
+        // }
+
+
+
     }
 }

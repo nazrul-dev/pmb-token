@@ -14,8 +14,7 @@ class CreateTokensTable extends Migration
     public function up()
     {
         Schema::create('token', function (Blueprint $table) {
-            $table->id();
-            
+            $table->uuid('id');
             $table->string('email')->unique();
             $table->string('token', 24)->unique();
             $table->string('password');

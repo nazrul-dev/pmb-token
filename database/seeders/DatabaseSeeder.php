@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Faculty;
+use App\Models\Pengaturan;
 use App\Models\Study;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -16,26 +17,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {        
-        // User::create([
+        User::create([
            
-        //     'email' => 'superadmin@superadmin.com',
-        //     'password' => bcrypt('password'),
-        //     'akses'  => 'superadmin'
-        // ]);
+            'email' => 'superadmin@superadmin.com',
+            'password' => bcrypt('password'),
+            'akses'  => 'superadmin'
+        ]);
 
-        // User::create([
+        User::create([
         
-        //     'email' => 'panitia@panitia.com',
-        //     'password' => bcrypt('password'),
-        //     'akses'  => 'panitia'
-        // ]);
+            'email' => 'panitia@panitia.com',
+            'password' => bcrypt('password'),
+            'akses'  => 'panitia'
+        ]);
 
-        // User::create([
+        User::create([
            
-        //     'email' => 'admin@admin.com',
-        //     'password' => bcrypt('password'),
-        //     'akses'  => 'admin'
-        // ]);
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('password'),
+            'akses'  => 'admin'
+        ]);
 
         Faculty::create([
             'id'        => 1,
@@ -130,6 +131,11 @@ class DatabaseSeeder extends Seeder
             'faculty_id' => '5',
             'name' => 'PERENCANAAN WILAYAH DAN KOTA',
             
+        ]);
+
+        Pengaturan::create([
+            'id'        => 1,
+            'pmb'       => 1,
         ]);
     }
 }

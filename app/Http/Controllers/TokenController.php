@@ -5,15 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Token;
 use Illuminate\Http\Request;
 use App\Models\Pengaturan;
-
+use Webpatser\Uuid\Uuid;
 
 class TokenController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('admin');
-       
-    }
+   
 
     public function index()
     {
@@ -46,12 +42,15 @@ class TokenController extends Controller
         ]);
     
         $token = Token::create([
-            'email' => request('email'),
+            'id'        => (string) Uuid::generate(4),
+            'email'     => request('email'),
             'gelombang' => $this->pengaturan()['data']->gelombang,
-            'angkatan' =>  $this->pengaturan()['data']->angkatan,
-            'token' => Token::generate_token(),
-            'password' => Token::generate_password(),
+            'angkatan'  =>  $this->pengaturan()['data']->angkatan,
+            'token'     => Token::generate_token(),
+            'password'  => Token::generate_password(),
         ]);
+
+        dd($token);
 
         // $this->send_email_token($token);
 

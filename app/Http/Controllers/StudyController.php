@@ -11,10 +11,7 @@ class StudyController extends Controller
 
     private $label = 'Program Studi';
     private $prefix = 'study';
-    function __construct()
-    {
-        $this->middleware('panitia');
-    }
+    
 
     public function index()
     {
@@ -44,17 +41,13 @@ class StudyController extends Controller
 
     public function setKouta(Study $study)
     {
-        if(auth()->user()->akses === 'superadmin'){
-            if (request()->isMethod('get')) {
-                $data       = Study::latest()->get();
-                return view('study.kouta', compact('data'));
-            } elseif (request()->method('patch')) {
-                $kouta = request('kouta');
-                $study->update(['kouta' =>  $kouta]);
-                return redirect()->back()->with('success', 'Berhasil Mengubah Kouta');
-            }
-        }else{
-            return redirect()->back();
+        if (request()->isMethod('get')) {
+            $data       = Study::latest()->get();
+            return view('study.kouta', compact('data'));
+        } elseif (request()->method('patch')) {
+            $kouta = request('kouta');
+            $study->update(['kouta' =>  $kouta]);
+            return redirect()->back()->with('success', 'Berhasil Mengubah Kouta');
         }
 
        

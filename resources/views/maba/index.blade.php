@@ -8,7 +8,7 @@
           processing: true,
           serverSide: true,
           
-          ajax: "{{ route('back.ajax.maba') }}",
+          ajax: "{{ url('api/maba') }}",
           columns: [
              
             

@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Token extends Model
 {
     protected $table = "token";
     protected $guarded = [];
 
     use HasFactory;
-
+    
+  
     public function maba(){
         return $this->hasOne(Maba::class);
     }

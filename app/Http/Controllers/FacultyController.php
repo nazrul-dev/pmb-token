@@ -11,10 +11,7 @@ class FacultyController extends Controller
 
     private $label = 'Fakultas';
     private $prefix = 'faculty';
-    function __construct()
-    {
-        $this->middleware('panitia');
-    }
+  
 
     public function index()
     {
