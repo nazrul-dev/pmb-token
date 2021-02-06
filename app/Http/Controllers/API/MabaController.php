@@ -36,9 +36,10 @@ class MabaController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
                 $actionBtn = '
-                        <a href="' . route('back.maba.show', $row->user->uuid) . '" class="btn btn-info  btn-xs"><i class="fa fa-eye"></i></a> 
-                        <a href="' . route('back.maba.edit', $row->uuid) . '" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
-                        <a href="' . route('back.maba.berkas', $row->user->uuid) . '" class="delete btn btn-success btn-xs"><i class="fa fa-file"></i></a>';
+                <a href="' . route('back.maba.show', $row->user->uuid) . '" title="INFO DETAIL" class="btn btn-info  btn-xs"><i class="fa fa-eye"></i></a> 
+                <a href="' . route('back.maba.edit', $row->uuid) . '" title="EDIT INFO MABA" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
+                <a href="' . route('back.maba.berkas', $row->user->uuid) . '" title="TELUSURI BERKAS" class="delete btn btn-success btn-xs"><i class="fa fa-file"></i></a>
+                <a  href="' . route('back.maba.reset', $row->user->uuid) . '" title="RESET PASSWORD" class="btn btn-danger reset btn-xs"><i class="fa fa-refresh "></i></a>';
                 return $actionBtn;
             })
             ->rawColumns(['action'])

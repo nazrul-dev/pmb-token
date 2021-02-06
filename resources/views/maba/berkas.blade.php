@@ -1,7 +1,7 @@
 @extends('_layouts.back')
 @section('content')
     @php
-    $id = Crypt::encryptString($user->maba->biodata->id);
+    $id = $user->maba->biodata->uuid
     @endphp
     <section class="content">
         <div class="row">

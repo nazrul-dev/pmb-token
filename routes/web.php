@@ -9,6 +9,7 @@ use App\Http\Controllers\PengaturanController;
 
 use App\Http\Controllers\StudyController;
 use App\Http\Controllers\TokenController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ValidationController;
 use App\Models\Pengumuman;
 use Illuminate\Support\Facades\Auth;
@@ -43,17 +44,22 @@ Route::middleware('auth')->name('back.')->prefix('back')->group(function () {
     
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     // MABA ROUTE 
-    Route::middleware('Akses:maba,panitia')->name('maba.')->prefix('maba')->group(function () {
+    Route::middleware('Akses:maba,panitia,superadmin')->name('maba.')->prefix('maba')->group(function () {
         Route::get('berkas/{id}', [MabaController::class, 'berkas'])->name('berkas');
         Route::patch('berkas/upload', [MabaController::class, 'berkasUpload'])->name('uploadberkas');
         Route::get('cetak/formulir/{id}', [CetakController::class, 'formulir'])->name('cetak.formulir');
+        Route::middleware('Akses:panitia,superadmin')->group(function () {
+            Route::get('password/reset/{user}', [MabaController::class, 'reset'])->name('reset');
+        });
     });
-    Route::resource('maba', MabaController::class, ['except' => ['store', 'create']]);
+
+
     // MABA ROUTE 
     // ADMIN TOKEN ROUTE 
     Route::middleware('Akses:admin,superadmin')->resource('token', TokenController::class);
     // ADMIN TOKEN ROUTE 
     Route::middleware(['Akses:panitia,superadmin'])->group(function () {
+        Route::resource('maba', MabaController::class, ['except' => ['store', 'create']]);
         Route::resources([
             'faculty'       => FacultyController::class,
             'study'         => StudyController::class
@@ -65,10 +71,12 @@ Route::middleware('auth')->name('back.')->prefix('back')->group(function () {
             Route::post('cetak', [CetakController::class, 'pmb'])->name('cetak');
         });
     });
-    Route::middleware('Akses:superadmin')->name('pmb.')->prefix('pmb')->group(function () {
-        Route::get('studi/kouta', [StudyController::class, 'setKouta'])->name('studi.kouta');
-        Route::patch('studi/kouta/{study}', [StudyController::class, 'setKouta'])->name('studi.kouta.update');
-        Route::post('close', [PengaturanController::class, 'close'])->name('close');
-        Route::post('open', [PengaturanController::class, 'open'])->name('open');
+    Route::middleware('Akses:superadmin')->group(function () {
+        Route::get('pmb/studi/kouta', [StudyController::class, 'setKouta'])->name('pmb.studi.kouta');
+        Route::patch('pmb/studi/kouta/{study}', [StudyController::class, 'setKouta'])->name('pmb.studi.kouta.update');
+        Route::post('pmb/close', [PengaturanController::class, 'close'])->name('pmb.close');
+        Route::post('pmb/open', [PengaturanController::class, 'open'])->name('pmb.open');
+        Route::resource('users', UserController::class, ['except' => ['edit', 'create', 'show']]);
     });
+  
 });

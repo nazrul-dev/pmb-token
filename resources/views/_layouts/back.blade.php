@@ -19,6 +19,14 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE2/dist/css/skins/skin-green.min.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+    </style>
+
 </head>
 
 <body class="hold-transition skin-green sidebar-mini sidebar-collapse">
@@ -28,7 +36,7 @@
 
             <a href="index2.html" class="logo">
 
-                <span class="logo-mini"><b>A</b>LT</span>
+                <span class="logo-mini"><b>PMB</b></span>
 
                 <span class="logo-lg"><b>PMB | TOKEN
                     </b></span>
@@ -39,64 +47,13 @@
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
-
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-
-                        <li class="dropdown notifications-menu">
-
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
-                                <li>
-
-                                    <ul class="menu">
-                                        <li>
-
-                                            <a href="#">
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">View all</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown user user-menu">
-
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-key"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-
-                                <li class="user-header">
-                                    <img src="https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg"
-                                        class="img-circle" alt="User Image">
-                                    <p>
-                                        {{ auth()->user()->name }} - {{ auth()->user()->type }}
-                                        <small>Terdaftar {{ auth()->user()->created_at->diffForHumans() }}</small>
-                                    </p>
-                                </li>
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-success btn-flat">Ganti Password</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger btn-flat">Sign out</button>
-                                        </form>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
+                <div class="pull-right">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" style="margin-top:7px; margin-right:50px; background-color:#305f49" class="btn btn-danger">KELUAR AKUN</button>
+                    </form>
                 </div>
+
             </nav>
         </header>
 
@@ -204,6 +161,7 @@
     <script src="{{ asset('js/lightbox/dist/js/lightbox.js') }}"></script>
     <script src="{{ asset('AdminLTE2/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('js/instascan/scan.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     @yield('extjs')
     <script>
         $('.date').datepicker({

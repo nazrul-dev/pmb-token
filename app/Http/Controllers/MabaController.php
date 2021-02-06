@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Mail\PmbAccount;
 use App\Models\{Biodata, Faculty, Maba, Study, Token, User};
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Crypt, DB, Hash, Mail, Validator};
 use Image;
+
 class MabaController extends Controller
 {
     public function index()
@@ -14,11 +17,10 @@ class MabaController extends Controller
     }
     public function berkas($id)
     {
-        if (auth()->user()->akses == 'maba' || auth()->user()->akses == 'panitia' || auth()->user()->akses == 'superadmin') {
-            $user = User::with(['maba.biodata'])->find($id);
-            return view('maba.berkas', compact('user'));
-        }
+        $user = User::with(['maba.biodata'])->find($id);
+        return view('maba.berkas', compact('user'));
     }
+
     public function berkasUpload(Request $request)
     {
         $request->validate([
@@ -88,7 +90,7 @@ class MabaController extends Controller
         $prodi          = Study::find($request->prodi);
         //  ANGKA 1 KOUTA HABIS 
         //  ANGKA 0 KOUTA UNLIMITED
-        if($prodi->kouta == 1){
+        if ($prodi->kouta == 1) {
             return redirect()->back()->with('error', 'Kouta Untuk Program Studi Ini Sudah Habis, Silahkan Pilih Program Studi Yang Lain');
         }
         $validData =  Maba::signature2($request->signature);
@@ -118,14 +120,13 @@ class MabaController extends Controller
 
                 $validData->update(['use_token' => 1]);
 
-                if($prodi->kouta > 1){
-                    $prodi->decrement('kouta', 1); 
+                if ($prodi->kouta > 1) {
+                    $prodi->decrement('kouta', 1);
                 }
                 // $this->send_email_account($getByDataToken);
                 return redirect(route('after.store', $user->email));
-
             } catch (\Exception $e) {
-               dd($e); 
+                dd($e);
             }
         } else {
             return abort('404');
@@ -144,24 +145,18 @@ class MabaController extends Controller
     }
     public function show($id)
     {
-        if (auth()->user()->akses == 'maba' || auth()->user()->akses == 'panitia' || auth()->user()->akses == 'superadmin') {
-            $user = User::with(['maba.token', 'maba.biodata', 'maba.biodata.getfakultas', 'maba.biodata.getprodi'])->find($id);
-            $statusberkas = Maba::cekberkas($user->maba->biodata->id);
-            return view('maba.show', compact(['user', 'statusberkas']));
-        }
-        return redirect()->back();
+        $user = User::with(['maba.token', 'maba.biodata', 'maba.biodata.getfakultas', 'maba.biodata.getprodi'])->find($id);
+        $statusberkas = Maba::cekberkas($user->maba->biodata->uuid);
+      
+        return view('maba.show', compact(['user', 'statusberkas']));
     }
 
     public function edit($id)
     {
-        $faculties = Faculty::get();
-        if (auth()->user()->akses == 'panitia' || auth()->user()->akses == 'superadmin') {
-            $maba = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->find($id);
-            return view('maba.edit', compact(['maba', 'faculties']));
-        }
-        return redirect()->back();
+        $maba = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->find($id);
+        return view('maba.edit', compact(['maba']));
     }
-    
+
     public function update($id)
     {
         $biodata = Biodata::findOrFail($id);
@@ -176,13 +171,8 @@ class MabaController extends Controller
             'ukuran_baju'       => ['required'],
             'alamat'            => ['required'],
             'telepon'           => ['required'],
-            'pilihan_kelas'     => ['required'],
-            'prodi'             => ['required'],
-            'fakultas'          => ['required'],
-            'jurusan'           => ['required'],
-            'provinsi'          => ['required'], ['numeric'],
-            'kabupaten'         => ['required'], ['numeric'],
-            'kecamatan'         => ['required'], ['numeric'],
+          
+         
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -197,11 +187,20 @@ class MabaController extends Controller
         //
     }
 
-    public function formulir(Request $request){
-        
+    public function formulir(Request $request)
+    {
+
         $signature = $request->input('signature');
         $data =  $request->input()[0];
         return view('formulir', compact(['data', 'signature']));
+    }
 
+    public function reset(User $user){
+
+            $Dpass = $user->maba->token->password;
+            $email = $user->email;
+            $user->password = Hash::make($Dpass);
+            return redirect()->back()->with('success', 'Password Berhasil Di Reset, Password Perubahan [ '. $Dpass.' ] ');
+             // $this->send_reset_pass($getByDataToken);
     }
 }

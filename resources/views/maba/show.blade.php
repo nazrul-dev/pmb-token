@@ -154,14 +154,13 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="box-body">
+ 
                     @if ($statusberkas === true)
-                    <a href="{{ route('cetak.formulir', Crypt::encryptString($user->maba->id)) }}" class="btn btn-block btn-social btn-success">
+                    <a href="{{ route('back.maba.cetak.formulir', $user->maba->uuid) }}" class="btn btn-block btn-social btn-success">
                         <i class="fa fa-download"></i> Cetak Formulir PDF
                     </a>
                     @endif
-                    <a class="btn btn-block btn-social btn-instagram">
-                        <i class="fa  fa-commenting"></i> Kirimkan Pesan
-                    </a>
+                   
                 </div>
             </div>
         </div>

@@ -1,31 +1,5 @@
 @extends('_layouts.back')
-@section('extjs')
-    <script>
-        $('#faculty').on('change', function() {
-            showStudy($(this).val());
-        });
-        function showStudy(id = '') {
-            var url = "{{ url('/ajaxstudy') }}";
-            $.ajax({
-                url: url + '/' + id,
-                type: "GET",
-                dataType: 'json',
-                success: function(data) {
-                    $('#study').empty('.study-item');
-                    if (data.length === 0) {
-                        $('#study').prop('disabled', true);
-                    } else {
-                        $('#study').prop('disabled', false);
-                        jQuery.each(data, function(index, item) {
-                            $('#study').append('<option class="study-item" value="' + item.id + '">' +
-                                item.name + '</option>');
-                        });
-                    }
-                }
-            });
-        }
-    </script>
-@endsection
+
 @section('content')
     <section class="content">
         <div class="col-md-2"></div>
@@ -41,7 +15,7 @@
                     </div>
                 @endif
                 <div class="box-body">
-                    <form method="POST" class="form-horizontal" action="{{ route('back.maba.update', Crypt::encryptString($maba->biodata->id)) }}" autocomplete="OFF">
+                    <form method="POST" class="form-horizontal" action="{{ route('back.maba.update', $maba->biodata->uuid) }}" autocomplete="OFF">
                         @method('patch')
                         @csrf
                         <hr>
@@ -137,37 +111,7 @@
                             </div>
                         </div>
                         <hr>
-                        <h4 class="text-bold text-lg">&nbsp; &nbsp;&nbsp;&nbsp;Pilihan Pada Universitas Pohuwato</h4>
-                        <hr>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">pilihan kelas</label>
-                            <div class="col-sm-7">
-                                <select name="pilihan_kelas" class="form-control" id="">
-                                    <option value="pagi" {{ $maba->biodata->pilihan_kelas === 'pagi' ? "selected"  : ""}}> Reguler Pagi</option>
-                                    <option value="sore" {{ $maba->biodata->pilihan_kelas === 'sore' ? "selected"  : ""}}> Reguler Sore</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Fakultas</label>
-                            <div class="col-sm-7">
-                                <select name="fakultas" class="form-control" id="faculty">
-                                    <option value="" disabled> Pilih Fakultas</option>
-                                    @foreach ($faculties as $faculty)
-                                        <option value="{{ $faculty->id }}" {{ $faculty->id == $maba->biodata->fakultas ? "selected" : "" }}>{{ $faculty->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">studi</label>
-                            <div class="col-sm-7">
-                                <select name="prodi" class="form-control" id="study" disabled>
-                                    <option class="study-item" value="{{ $maba->biodata->prodi }}" selected>{{ $maba->biodata->getprodi->name }}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <hr>
+                  
                         <div class="form-group">
                            <button class="btn btn-success btn-block btn-lg font-bold text-lg h1">EDIT FORMULIR</button>
                         </div>

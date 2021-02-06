@@ -39,7 +39,7 @@
     <section class="content">
         <div class="register-box">
             <div class="login-logo">
-                <a href="../../index2.html"><b>REGISTRASI</b> TOKEN</a>
+                <a href="{{ url('/') }}"><b>REGISTRASI</b> TOKEN</a>
             </div>
             @if (Session::has('error'))
                 <div class="callout callout-danger">
