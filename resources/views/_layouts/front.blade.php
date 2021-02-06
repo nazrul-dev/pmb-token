@@ -105,27 +105,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ asset('js/instascan.min.js') }}"></script>
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            type: 'horizontalBar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        
+        var DataProdi = [];
+        var JumlahMaba = [];
+        $.ajax({
+            url: "{{ url('api/biodata') }}",
+            method: 'GET',
+            success: function(res){
+                $.each(res, function(index, value) {
+                    DataProdi.push(value.nama_prodi);
+                    JumlahMaba.push(value.jumlah_maba);
+                })
+                
+                console.log(DataProdi);
+
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    
+                    type: 'bar',
+                    type: 'horizontalBar',
+                    data: {
+                        labels: DataProdi,
+                        datasets: [{
+                            label: 'Jumlah Mahasiswa Baru',
+                            data: JumlahMaba,
                         }
-                    }]
-                }
-            }
-        });
+                      ]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            },
+        })
+
+
+        
+        
         </script>
     @yield('extjs')
     <script>
