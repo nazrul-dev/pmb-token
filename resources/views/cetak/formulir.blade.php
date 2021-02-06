@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        
         .info td {
             line-height: 30px
         }
-
         .under {
             line-height: 500px
         }
-
     </style>
 </head>
-
 <body>
     <table>
         <tr>
@@ -32,16 +27,12 @@
             <td width="30%" align="right">
                 @php
                      $signature = $maba->biodata->no_registrasi;
-                     
                      $qrqode = QrCode::generate($signature);
                      $qrqode = str_replace('<?xml version="1.0" encoding="UTF-8"?>', '', $qrqode );
-                   
                 @endphp
                 {!! $qrqode!!}
-               
             </td>
         </tr>
-
     </table>
     <hr style="margin-bottom: 1px">
     <hr style="margin-top: 0px">
@@ -54,7 +45,6 @@
             <td width="35%" style="padding-left:3rem;">NO TOKEN</td>
             <td>: {{ $maba->token->token }}</td>
         </tr>
-       
         <tr>
             <td width="30%" style="padding-left:3rem;">NAMA LENGKAP</td>
             <td>: {{ $maba->biodata->nama_lengkap }}</td>
@@ -106,7 +96,6 @@
             <td>: {{  $maba->biodata->getprodi->name }}</td>
         </tr>
     </table>
-
     <hr style="margin-bottom: 1px">
     <hr style="margin-top: 0px">
     <table style="margin-top:30px" width="100%">
@@ -122,5 +111,4 @@
         </tr>
     </table>
 </body>
-
 </html>

@@ -70,7 +70,6 @@
     .blocked-table .dropdown-menu > li button:hover {
         background: rgba(0,0,0,.04);
     }
-
     .blocked-table {
         border: 0;
     }

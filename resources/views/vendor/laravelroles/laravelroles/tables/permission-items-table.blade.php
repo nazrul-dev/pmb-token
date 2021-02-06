@@ -142,8 +142,6 @@
                             </td>
                         @endif
                         @if($tabletype == 'deleted')
-
-
                             <td>
                                 <a class="btn btn-sm btn-outline-info btn-block" href="{{ route('laravelroles::permission-show-deleted', $item->id) }}" data-toggle="tooltip" title="{{ trans('laravelroles::laravelroles.tooltips.show-deleted-permission') }}">
                                     {!! trans("laravelroles::laravelroles.buttons.show-deleted-permission") !!}
@@ -156,9 +154,6 @@
                             <td>
 @include('laravelroles::laravelroles.forms.destroy-sm', ['type' => 'Permission' ,'item' => $item])
                             </td>
-
-
-
                         @endif
                     </tr>
                 @endforeach

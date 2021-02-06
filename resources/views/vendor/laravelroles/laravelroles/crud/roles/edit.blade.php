@@ -1,9 +1,7 @@
 @extends(config('roles.bladeExtended'))
-
 @section(config('roles.titleExtended'))
     {!! trans('laravelroles::laravelroles.titles.edit-role', ['name' => $name]) !!}
 @endsection
-
 @php
     switch (config('roles.bootstapVersion')) {
         case '3':
@@ -20,7 +18,6 @@
     }
     $bootstrapCardClasses = (is_null(config('roles.bootstrapCardClasses')) ? '' : config('roles.bootstrapCardClasses'));
 @endphp
-
 @section(config('roles.bladePlacementCss'))
     @if(config('roles.enableFontAwesomeCDN'))
         <link rel="stylesheet" type="text/css" href="{{ config('roles.fontAwesomeCDN') }}">
@@ -31,11 +28,8 @@
         <link rel="stylesheet" type="text/css" href="{{ config('roles.SelectizeJsCssCDN') }}">
     @endif
 @endsection
-
 @section('content')
-
     @include('laravelroles::laravelroles.partials.flash-messages')
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -55,9 +49,7 @@
             </div>
         </div>
     </div>
-
 @endsection
-
 @section(config('roles.bladePlacementJs'))
     @if(config('roles.enablejQueryCDN'))
         <script type="text/javascript" src="{{ config('roles.JQueryCDN') }}"></script>
@@ -72,6 +64,5 @@
         @include('laravelroles::laravelroles.scripts.selectize')
     @endif
 @endsection
-
 @yield('inline_template_linked_css')
 @yield('inline_footer_scripts')

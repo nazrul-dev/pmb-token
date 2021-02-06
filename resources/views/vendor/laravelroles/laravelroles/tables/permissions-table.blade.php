@@ -7,7 +7,6 @@
         $tableItems = $sortedPermissionsRolesUsers;
     }
 @endphp
-
 <div class="{{ $rolesContainerClass }} {{ $bootstrapCardClasses }}">
     <div class="{{ $rolesContainerHeaderClass }}">
         <div style="display: flex; justify-content: space-between; align-items: center;">

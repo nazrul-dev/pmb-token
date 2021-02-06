@@ -1,23 +1,15 @@
 @extends('_layouts.back')
 @section('content')
-
 <section class="content">
     <div class="row">
-       
         <div class="col-md-8">
-
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-
                     <li class="active"><a href="#tab_1" data-toggle="tab">Data Calon Mahasiswa</a></li>
                     <li><a href="#tab_2" data-toggle="tab">Pilihan Pada UNIPO</a></li>
-                
                     <li><a href="#tab_3" data-toggle="tab">Berkas Persyaratan</a></li>
-
-
                 </ul>
                 <div class="tab-content">
-
                     <div class="tab-pane active" id="tab_1">
                         <table class="table table-borderless">
                             <tbody>
@@ -37,7 +29,6 @@
                                     <td width="25%" class="text-right"> Angkatan Pendaftaran : </td>
                                     <td>{{ $user->maba->token->angkatan }} / {{ $user->maba->token->angkatan + 1 }}</td>
                                 </tr>
-
                                 <tr>
                                     <td width="20%" class="text-right">Nama Lengkap : </td>
                                     <td>{{  $user->maba->biodata->nama_lengkap }}</td>
@@ -62,7 +53,6 @@
                                     <td width="20%" class="text-right"> Alamat: </td>
                                     <td>{{ $user->maba->biodata->alamat }}</td>
                                 </tr>
-                                
                                 <tr>
                                     <td width="20%" class="text-right"> Telp/HP : </td>
                                     <td>{{ $user->maba->biodata->telepon }}</td>
@@ -71,7 +61,6 @@
                                     <td width="20%" class="text-right"> Ukuran Baju : </td>
                                     <td>{{ $user->maba->biodata->ukuran_baju }}</td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
@@ -99,10 +88,7 @@
                         </table>
                     </div>
                     <!-- /.tab-pane -->
-                  
-
                     <div class="tab-pane" id="tab_3">
-
                         @if ($user->maba->biodata->ijazah)
                             <a class="btn btn-block btn-social btn-success"
                                 href="{{ asset('media/berkas/' . $user->maba->biodata->ijazah) }}"
@@ -114,7 +100,6 @@
                                 <i class="fa fa-remove"></i> Ijazah / SKHU
                             </button>
                         @endif
-
                         @if ($user->maba->biodata->passphoto)
                             <a class="btn btn-block btn-social btn-success"
                                 href="{{ asset('media/berkas/' . $user->maba->biodata->passphoto) }}"
@@ -126,7 +111,6 @@
                                 <i class="fa fa-remove"></i> Pass Photo
                             </button>
                         @endif
-
                         @if ($user->maba->biodata->akta)
                             <a class="btn btn-block btn-social btn-success"
                                 href="{{ asset('media/berkas/' . $user->maba->biodata->akta) }}"
@@ -138,7 +122,6 @@
                                 <i class="fa fa-remove"></i> Akta Kelahiran
                             </button>
                         @endif
-
                         @if ($user->maba->biodata->kartu_keluarga)
                             <a class="btn btn-block btn-social btn-success"
                                 href="{{ asset('media/berkas/' . $user->maba->biodata->kartu_keluarga) }}"
@@ -161,8 +144,6 @@
                             <i class="fa fa-remove"></i> KTP
                         </button>
                     @endif
-
-
                     </div>
                     <!-- /.tab-pane -->
                 </div>
@@ -170,29 +151,20 @@
             </div>
             <!-- nav-tabs-custom -->
         </div>
-
         <div class="col-md-4">
-
             <div class="box">
-
                 <div class="box-body">
                     @if ($statusberkas === true)
                     <a href="{{ route('cetak.formulir', Crypt::encryptString($user->maba->id)) }}" class="btn btn-block btn-social btn-success">
                         <i class="fa fa-download"></i> Cetak Formulir PDF
                     </a>
                     @endif
-                  
                     <a class="btn btn-block btn-social btn-instagram">
                         <i class="fa  fa-commenting"></i> Kirimkan Pesan
                     </a>
-                    
-
-
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-  
 @endsection

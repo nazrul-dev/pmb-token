@@ -6,4 +6,3 @@
         {!! trans('laravelroles::laravelroles.buttons.destroy-all-roles') !!}
     </button>
 </form>
-

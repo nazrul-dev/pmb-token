@@ -1,15 +1,6 @@
 <?php
-
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Laravel Roles Language Lines - laravelroles
-    |--------------------------------------------------------------------------
-    */
-
     'date-format' => 'm/d/Y h:ia',
-
     'titles' => [
         'dashboard'                 => 'Roles Dashboard',
         'show-role'                 => 'Showing Role: <strong>:name</strong>',
@@ -29,7 +20,6 @@ return [
         'permissions-deleted-table' => 'Deleted Permissions',
         'show-permission-deleted'   => 'Showing Deleted Permission: <strong>:name</strong>',
     ],
-
     'cards' => [
         'users-count'       => '{1} :count user|[2,*] :count users',
         'permissions-count' => '{1} :count permission|[2,*] :count permissions',
@@ -76,9 +66,7 @@ return [
             'deleted'           => 'Deleted at',
             'none'              => 'None',
         ],
-
     ],
-
     'roles-table' => [
         'caption'       => '{1} :count role total|[2,*] :count total roles',
         'id'            => 'ID',
@@ -92,11 +80,9 @@ return [
         'actions'       => 'Actions',
         'none'          => 'No Role Items',
     ],
-
     'roles-deleted-table' => [
         'caption'       => '{1} :count deleted role total|[2,*] :count total deleted roles',
     ],
-
     'permissions-table' => [
         'caption'       => '{1} :count permission total|[2,*] :count total permissions',
         'id'            => 'ID',
@@ -110,11 +96,9 @@ return [
         'actions'       => 'Actions',
         'none'          => 'No Permission Items',
     ],
-
     'permissions-deleted-table' => [
         'caption'       => '{1} :count deleted permission total|[2,*] :count total deleted permissions',
     ],
-
     'buttons' => [
         'create-new-role'               => 'Create New Role',
         'show-deleted-roles'            => 'Deleted Roles',
@@ -143,7 +127,6 @@ return [
         'restore-all-permissions'       => 'Restore all deleted permissions',
         'destroy-all-permissions'       => 'Destroy all deleted permissions',
     ],
-
     'tooltips' => [
         'view-user'                 => 'View User',
         'delete-role'               => 'Delete Role',
@@ -168,7 +151,6 @@ return [
         'show-deleted-role'         => 'Show Role',
         'show-deleted-permission'   => 'Show Permission',
     ],
-
     'modals' => [
         'delete_modal_title'            => 'Delete :type :item',
         'destroy_modal_title'           => 'Destroy :type :item',
@@ -191,7 +173,6 @@ return [
         'destroyAllPermissionsTitle'    => 'Destroy ALL Deleted Permissions',
         'destroyAllPermissionsMessage'  => 'Are you sure you want to DESTROY ALL deleted permissions?',
     ],
-
     'flash-messages' => [
         'close'                             => 'Close',
         'success'                           => 'Success',
@@ -218,7 +199,6 @@ return [
         'errorDestroyingAllPermissions'     => 'Error Destroying Deleted Permissions',
         'successRestoredPermission'         => 'Successfully Restored Permission: :permission',
     ],
-
     'forms' => [
         'roles-form' => [
             'role-name' => [

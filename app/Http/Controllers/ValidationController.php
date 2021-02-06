@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Faculty;
 use App\Models\Token;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Laravolt\Indonesia\Models\Province as Province;
+use stdClass;
 
 class ValidationController extends Controller
 {
@@ -18,12 +18,12 @@ class ValidationController extends Controller
         $email = request('email');
         $token = request('token');
         $isToken = Token::where(['email' => $email, 'token' => $token])->first();
-
         if ($isToken) {
             if ($isToken->use_token == 0) {
-                $provinces = Province::pluck('name', 'id');
-                $faculties = Faculty::latest()->get();
-                return view('formulir', compact(['faculties', 'isToken', 'provinces']));
+               
+                $signature = Crypt::encryptString($isToken->email.'`'.$isToken->token.'`'.$isToken->angkatan.'`'.$isToken->gelombang);  
+                return redirect()->route('formulir')->withInput(['signature' =>  $signature]);
+            
             } else {
                 return redirect()->back()->with('error', 'Token Anda Sudah Terpakai, Silahkan Periksa Kembali Token Anda');
             }

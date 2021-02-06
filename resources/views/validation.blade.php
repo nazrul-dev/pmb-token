@@ -24,20 +24,15 @@
             });
         };
     }(jQuery));
-
     $(".token").inputFilter(function(value) {
-
         return /^[\d ()+-]+$/.test(value); // Allow digits only, using a RegExp
     });
-
     $(".token").keyup(function() {
         var maxChars = 24;
         if ($(this).val().length > maxChars) {
             $(this).val($(this).val().substr(0, maxChars));
-
         }
     });
-
 </script>
 @endsection
 @section('content')
@@ -46,7 +41,6 @@
             <div class="login-logo">
                 <a href="../../index2.html"><b>REGISTRASI</b> TOKEN</a>
             </div>
-
             @if (Session::has('error'))
                 <div class="callout callout-danger">
                     <h4><i class="fa fa-bullhorn"></i> &nbsp; Pesan Kesalahan</h4>
@@ -63,10 +57,7 @@
                     </ul>
                 </div>
             @endif
-
             <div class="register-box-body">
-
-
                 <form action="{{ route('validation') }}" method="post">
                     @csrf
                     <div class="form-group has-feedback">
@@ -85,22 +76,18 @@
                         <input type="text" name="token" value="{{ old('token') }}" class="form-control token"
                             placeholder="xxxx-xxxx-xxxx-xxxx">
                         <span class="glyphicon glyphicon-barcode form-control-feedback"></span>
-
                         @error('token')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-
                     <div class="form-group">
                         <button type="submit" class="btn btn-success btn-noborder btn-block btn-flat">Register
                             Token</button>
                     </div>
                 </form>
-
                 <hr>
                 <a href="login.html" class="text-center text-black">Belum Punya Token Pendaftaran ?</a>
             </div>
         </div>
-
     </section>
 @endsection

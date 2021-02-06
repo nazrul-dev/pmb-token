@@ -4,7 +4,6 @@
     $id = Crypt::encryptString($user->maba->biodata->id);
     @endphp
     <section class="content">
-
         <div class="row">
             <div class="col-xs-12">
                 @if ($errors->any())
@@ -48,7 +47,6 @@
                                         <br>
                                         <label for="ijazah">Ijazah / SKHU </label>
                                         <input type="file" required id="ijazah" name="ijazah">
-
                                         <p class="help-block">Format File JPG|PNG</p>
                                     </div>
                                 </div>
@@ -56,7 +54,6 @@
                         </div>
                         <div class="box-footer">
                             <input type="hidden" name="id" value="{{ $id }}">
-
                             @if (empty($user->maba->biodata->ijazah) || auth()->user()->akses === 'panitia' || auth()->user()->akses === 'superadmin')
                                 <button type="submit" class="btn btn-success btn-block">Upload Berkas</button>
                             @else
@@ -93,7 +90,6 @@
                                         <br>
                                         <label for="akta">Akta Kelahiran</label>
                                         <input type="file" required id="akta" name="akta">
-
                                         <p class="help-block">Format File JPG|PNG</p>
                                     </div>
                                 </div>
@@ -137,7 +133,6 @@
                                         <br>
                                         <label for="passphoto">Pass Photo 3X4</label>
                                         <input type="file" required id="passphoto" name="passphoto">
-
                                         <p class="help-block">Format File JPG|PNG</p>
                                     </div>
                                 </div>
@@ -169,7 +164,6 @@
                                     @else
                                         <img width="60" height="86" src="{{ asset('icon/kk.jpg') }}" alt="">
                                     @endif
-
                                 </div>
                                 <div class="col-xs-6 text-center">
                                     @if ($user->maba->biodata->kartu_keluarga)
@@ -177,14 +171,12 @@
                                     @else
                                         <img width="60" height="60" src="{{ asset('icon/no.png') }}" alt="">
                                     @endif
-
                                 </div>
                                 <div class="col-xs-12 border">
                                     <div class="form-group">
                                         <br>
                                         <label for="kartu_keluarga">Kartu Keluarga</label>
                                         <input type="file" required id="kartu_keluarga" name="kartu_keluarga">
-
                                         <p class="help-block">Format File JPG|PNG</p>
                                     </div>
                                 </div>
@@ -197,7 +189,6 @@
                             @else
                                 <button type="button" class="btn btn-success btn-block" disabled>Upload Berkas</button>
                             @endif
-
                         </div>
                     </form>
                 </div>
@@ -216,7 +207,6 @@
                                     @else
                                         <img width="60" height="86" src="{{ asset('icon/kk.jpg') }}" alt="">
                                     @endif
-
                                 </div>
                                 <div class="col-xs-6 text-center">
                                     @if ($user->maba->biodata->ktp)
@@ -224,14 +214,12 @@
                                     @else
                                         <img width="60" height="60" src="{{ asset('icon/no.png') }}" alt="">
                                     @endif
-
                                 </div>
                                 <div class="col-xs-12 border">
                                     <div class="form-group">
                                         <br>
                                         <label for="ktp">Kartu Keluarga</label>
                                         <input type="file" required id="ktp" name="ktp">
-
                                         <p class="help-block">Format File JPG|PNG</p>
                                     </div>
                                 </div>
@@ -244,12 +232,10 @@
                             @else
                                 <button type="button" class="btn btn-success btn-block" disabled>Upload Berkas</button>
                             @endif
-
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-
 @endsection

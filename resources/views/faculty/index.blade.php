@@ -1,7 +1,6 @@
 @extends('_layouts.back')
 @section('content')
     <section class="content">
-
         <div class="row ">
             <div class="col-md-2">
                 <div class="clearfix"></div>
@@ -43,8 +42,6 @@
                                         </td>
                                     </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                     </div>
@@ -56,9 +53,6 @@
             <div class="col-md-2">
                 <div class="clearfix"></div>
             </div>
-
         </div>
-
-
     </section>
 @endsection

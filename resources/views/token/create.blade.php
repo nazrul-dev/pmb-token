@@ -1,5 +1,4 @@
 @extends('_layouts.back')
-
 @section('content')
     <section class="content">
         <div class="row justify-content-center">
@@ -13,9 +12,7 @@
                     @foreach ($errors->all() as $error)
                         <p>{{ $error }}</p>
                     @endforeach
-    
                 </div>
-    
             @endif
                 <div class="box box-primary">
                     <div class="box-header with-border">
@@ -26,9 +23,7 @@
                     <form role="form" action="{{ route('back.token.store') }}" method="post">
                         @csrf
                         <div class="box-body">
-                           
                             <div class="row">
-
                                 <div class="col-md-12 col-xs-12">
                                     <div class="form-group">
                                         <label>EMAIL</label>
@@ -36,12 +31,9 @@
                                             placeholder="john@gmail.com">
                                     </div>
                                 </div>
-                                
                             </div>
-
                         </div>
                         <!-- /.box-body -->
-
                         <div class="box-footer text-right">
                             <button type="submit" class="btn btn-success">BUAT TOKEN</button>
                         </div>
@@ -51,9 +43,6 @@
             <div class="col-md-i">
                 <div class="clearfix"></div>
             </div>
-
         </div>
-
-
     </section>
 @endsection

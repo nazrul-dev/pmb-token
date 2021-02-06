@@ -5,7 +5,6 @@
     <div class="col-12">
         <select name="model" id="model">
             <option value="">{{ trans("laravelroles::laravelroles.forms.permissions-form.permission-model.placeholder") }}</option>
-
             @foreach ($permissionModels as $permissionModel)
                 <option @if ($permissionModel == $model) selected @endif value="{{ $permissionModel }}">
                     {{ $permissionModel }}

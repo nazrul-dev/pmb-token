@@ -1,9 +1,7 @@
 @extends(config('roles.bladeExtended'))
-
 @section(config('roles.titleExtended'))
     {!! trans('laravelroles::laravelroles.titles.show-role') !!}
 @endsection
-
 @php
     switch (config('roles.bootstapVersion')) {
         case '3':
@@ -20,7 +18,6 @@
     }
     $bootstrapCardClasses = (is_null(config('roles.bootstrapCardClasses')) ? '' : config('roles.bootstrapCardClasses'));
 @endphp
-
 @section(config('roles.bladePlacementCss'))
     @if(config('roles.enabledDatatablesJs'))
         <link rel="stylesheet" type="text/css" href="{{ config('roles.datatablesCssCDN') }}">
@@ -31,11 +28,8 @@
     @include('laravelroles::laravelroles.partials.styles')
     @include('laravelroles::laravelroles.partials.bs-visibility-css')
 @endsection
-
 @section('content')
-
     @include('laravelroles::laravelroles.partials.flash-messages')
-
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-10 offset-lg-1">
@@ -243,33 +237,27 @@
             </div>
         </div>
     </div>
-
     @include('laravelroles::laravelroles.modals.confirm-modal',[
         'formTrigger' => 'confirmRestore',
         'modalClass' => 'success',
         'actionBtnIcon' => 'fa-check'
     ])
-
     @include('laravelroles::laravelroles.modals.confirm-modal',[
         'formTrigger' => 'confirmDelete',
         'modalClass' => 'danger',
         'actionBtnIcon' => 'fa-trash-o'
     ])
-
     @include('laravelroles::laravelroles.modals.confirm-modal',[
         'formTrigger' => 'confirmDestroyRoles',
         'modalClass' => 'danger',
         'actionBtnIcon' => 'fa-trash-o'
     ])
-
     @include('laravelroles::laravelroles.modals.confirm-modal',[
         'formTrigger' => 'confirmRestoreRoles',
         'modalClass' => 'success',
         'actionBtnIcon' => 'fa-check'
     ])
-
 @endsection
-
 @section(config('roles.bladePlacementJs'))
     @if(config('roles.enablejQueryCDN'))
         <script type="text/javascript" src="{{ config('roles.JQueryCDN') }}"></script>
@@ -284,6 +272,5 @@
         @include('laravelroles::laravelroles.scripts.tooltips')
     @endif
 @endsection
-
 @yield('inline_template_linked_css')
 @yield('inline_footer_scripts')

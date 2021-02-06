@@ -5,7 +5,6 @@
             var max_fields = 50; //maximum input boxes allowed
             var wrapper = $(".input_fields_wrap"); //Fields wrapper
             var add_button = $(".addFaker"); //Add button ID
-
             var x = 1; //initlal text box count
             $(add_button).click(function(e) { //on add input button click
                 e.preventDefault();
@@ -16,14 +15,12 @@
                     );
                 }
             });
-
             $(wrapper).on("click", ".remove", function(e) { //user click on remove text
                 e.preventDefault();
                 $(this).parent('div').remove();
                 x--;
             })
         });
-
     </script>
 @endsection
 @section('content')
@@ -31,7 +28,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-
                 </div>
                 <div class="col-md-6">
                     <div class="alert alert-success">
@@ -51,7 +47,6 @@
                                     <div class="form-group">
                                         <label>DESKRIPSI</label>
                                         <textarea name="desc" id="" cols="30" rows="10"></textarea>
-                                     
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-xs-6">
@@ -66,7 +61,6 @@
                                         <input type="number" name="gelombang" class="form-control" placeholder="1">
                                     </div>
                                 </div>
-                              
                             </div>
                             <div class="box-footer text-center">
                                 <button type="submit" class="btn btn-success"> BUKA PENDAFTARAN</button>
@@ -75,7 +69,6 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-
                 </div>
             </div>
         </div>

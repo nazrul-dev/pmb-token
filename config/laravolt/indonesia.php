@@ -1,5 +1,4 @@
 <?php
-
 return [
     'table_prefix' => '',
     'route' => [

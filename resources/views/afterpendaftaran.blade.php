@@ -1,19 +1,15 @@
 @extends('_layouts.front')
-
 @section('content')
     <section class="content">
         <div class="row">
             <div class="col-xs-2">
-
             </div>
             <div class="col-lg-8 col-xs-12">
                 <div class="callout callout-success">
                     <h4><b>REGISTRASI</b> BERHASIL</h4>
                     <p>Terima Kasih Telah Melakukan Registrasi Di Universitas Pohuwato,  Untuk Selanjutya Ikuti Arahan Deskripsi Dibawah</p>
-                    
                   </div>
                 <div class="box">
-                
                     <div class="box-header with-border">
                         <h4 class="text-bold">PETUNJUK SELANJUTNYA</h4>
                     </div>
@@ -29,14 +25,11 @@
                                 Kontak Yang Bisa DiHubungi
                             </li>
                         </ul>
-                       
                     </div>
                 </div>
             </div>
             <div class="col-xs-2">
-
             </div>
         </div>
     </section>
-
     @endsection

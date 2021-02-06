@@ -17,9 +17,7 @@
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">{{ $title }}</h3>
-                       
                     </div>
-
                     <form role="form" action="{{ $route }}" method="post">
                         @csrf
                         <div class="box-body">
@@ -28,7 +26,6 @@
                                 <input type="text" value="{{ old('name') }}" name="name" class="form-control" placeholder="{{ $label }}">
                             </div>
                         </div>
-                        
                         <div class="box-footer text-right">
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
@@ -38,9 +35,6 @@
             <div class="col-md-3">
                 <div class="clearfix"></div>
             </div>
-
         </div>
-
-
     </section>
 @endsection

@@ -1,15 +1,6 @@
 <?php
-
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Laravel Roles Language Lines - laravelroles
-    |--------------------------------------------------------------------------
-    */
-
     'date-format' => 'G:i d.m.Y',
-
     'titles' => [
         'dashboard'                 => 'Rollenübersicht',
         'show-role'                 => 'Detailansicht Rolle: <strong>:name</strong>',
@@ -29,7 +20,6 @@ return [
         'permissions-deleted-table' => 'Gelöschte Berechtigungen',
         'show-permission-deleted'   => 'Detailansicht gelöschte Berechtigung: <strong>:name</strong>',
     ],
-
     'cards' => [
         'users-count'       => '{1} :count Benutzer|[2,*] :count Benutzer',
         'permissions-count' => '{1} :count Berechtigung|[2,*] :count Berechtigungen',
@@ -76,9 +66,7 @@ return [
             'deleted'           => 'Gelöscht am',
             'none'              => 'Keine',
         ],
-
     ],
-
     'roles-table' => [
         'caption'       => '{1} :count Rolle (Gesamt)|[2,*] :count Rollen (Gesamt)',
         'id'            => 'ID',
@@ -92,11 +80,9 @@ return [
         'actions'       => 'Aktionen',
         'none'          => 'Keine Rollen Einträge',
     ],
-
     'roles-deleted-table' => [
         'caption'       => '{1} :count gelöschte Rolle (Gesamt)|[2,*] :count gelöschte Rollen (Gesamt)',
     ],
-
     'permissions-table' => [
         'caption'       => '{1} :count Berechtigung (Gesamt)|[2,*] :count Berechtigungen (Gesamt)',
         'id'            => 'ID',
@@ -110,11 +96,9 @@ return [
         'actions'       => 'Aktionen',
         'none'          => 'Keine Berechtigungs Einträge',
     ],
-
     'permissions-deleted-table' => [
         'caption'       => '{1} :count gelöschte Berechtigung (Gesamt)|[2,*] :count gelöschte Berechtigungen (Gesamt)',
     ],
-
     'buttons' => [
         'create-new-role'               => 'Neue Rolle erstellen',
         'show-deleted-roles'            => 'Gelöschte Rollen',
@@ -143,7 +127,6 @@ return [
         'restore-all-permissions'       => 'Alle gelöschten Berechtigungen wiederherstellen',
         'destroy-all-permissions'       => 'Alle gelöschten Berechtigungen endgültig löschen',
     ],
-
     'tooltips' => [
         'view-user'                 => 'Benutzer anzeigen',
         'delete-role'               => 'Rolle löschen',
@@ -168,7 +151,6 @@ return [
         'show-deleted-role'         => 'Rolle anzeigen',
         'show-deleted-permission'   => 'Berechtigung anzeigen',
     ],
-
     'modals' => [
         'delete_modal_title'            => 'Lösche :type :item',
         'destroy_modal_title'           => 'Lösche endgültig :type :item',
@@ -191,7 +173,6 @@ return [
         'destroyAllPermissionsTitle'    => 'ALLE gelöschten Berechtigungen endgültig löschen',
         'destroyAllPermissionsMessage'  => 'Bist du dir sicher ALLE gelöschten Berechtigungen ENDGÜLTIG ZU LÖSCHEN?',
     ],
-
     'flash-messages' => [
         'close'                             => 'Schließen',
         'success'                           => 'Erfolg',
@@ -218,7 +199,6 @@ return [
         'errorDestroyingAllPermissions'     => 'Error bei der endgültigen Löschung gelöschter Berechtigungen',
         'successRestoredPermission'         => 'Erfolgreich Berechtigung wiederhergestellt: :permission',
     ],
-
     'forms' => [
         'roles-form' => [
             'role-name' => [

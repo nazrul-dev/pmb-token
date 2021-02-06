@@ -69,7 +69,6 @@
                             </div>
                             @if($item['users']->count() > 0 || $item['permissions']->count() > 0)
                                 <div id="collapse_roles_{{ $itemKey }}" class="collapse" data-parent="#accordion_roles_{{ $itemKey }}" >
-
                                     @if($item['users']->count() > 0)
                                         <table class="table table-striped table-sm mt-3">
                                             <caption>

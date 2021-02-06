@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Biodata;
+use App\Models\Faculty;
 use App\Models\Maba;
 use App\Models\Study;
 use \DataTables as Dbs;
@@ -11,7 +12,6 @@ use Illuminate\Support\Facades\Crypt;
 
 class MabaController extends Controller
 {
-
     public function arsip()
     {
         $data   = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->where('arsip', 1)->latest()->get();
@@ -29,7 +29,6 @@ class MabaController extends Controller
             ->rawColumns(['action', 'periode'])
             ->make(true);
     }
-
     public function get_current_maba()
     {
         $data   = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->where('arsip', 0)->latest()->get();
@@ -45,27 +44,27 @@ class MabaController extends Controller
             ->rawColumns(['action'])
             ->make(true);
     }
-
     public function get_prodi($id)
     {
         $studies = Study::where('faculty_id', $id)->get();
         return response()->json($studies);
-        
+    }
+
+    public function get_fakultas()
+    {
+        $faculties = Faculty::latest()->get();
+        return response()->json($faculties);
     }
 
     public function pmb_watch_prodi()
     {
     }
-
     public function pmb_watch_fakultas()
     {
     }
-
     public function pmb_watch_all()
     {
     }
-
-
     public function scanformulir(Biodata $biodata)
     {
     }

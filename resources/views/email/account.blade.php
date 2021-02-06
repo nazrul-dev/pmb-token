@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <style>
         .bg-password {
@@ -14,15 +13,12 @@
             border: 1px solid #000;
             box-shadow: 5px 10px #424240;
         }
-
         .txt-pass {
             font-size: 30px;
         }
-
         .button {
             background-color: #4CAF50;
             border: none;
-          
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
@@ -30,10 +26,8 @@
             font-size: 23px;
             margin: 4px 2px;
         }
-
     </style>
 </head>
-
 <body>
     <h4>
         <center>Terima Kasih Telah Melakukan Pendafataran Mahasiswa Baru Di Universitas Unipo </center>
@@ -49,12 +43,6 @@
     <p>
         <center>Silahkan Melakukan Login Di Panel Maba Agar Anda Bisa Melengkapi Berkas Yang Anda</center>
     </p>
-
     <center><a href="{{ url('/validation') }}" class="button"><span style="color: white">LINK PANEL MABA</span></a></center>
-
-
-
-
 </body>
-
 </html>

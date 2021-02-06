@@ -1,16 +1,7 @@
 <?php
-
 //from : vendor/jeremykenedy/laravel-roles/src/resources/lang/en/laravelroles.php
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Laravel Roles Language Lines - laravelroles
-    |--------------------------------------------------------------------------
-    */
-
     'date-format' => 'm/d/Y H:i',
-
     'titles' => [
         'dashboard'                 => 'Tableau de bord des Rôles',
         'show-role'                 => 'Rôle de présentation: <strong>:name</strong>',
@@ -30,7 +21,6 @@ return [
         'permissions-deleted-table' => 'Permissions Éffacées',
         'show-permission-deleted'   => 'Permission Éffacée: <strong>:name</strong>',
     ],
-
     'cards' => [
         'users-count'       => '{1} :count Utilisateur|[2,*] :count Utilisateurs',
         'permissions-count' => '{1} :count permission|[2,*] :count permissions',
@@ -77,9 +67,7 @@ return [
             'deleted'           => 'Éffacer le',
             'none'              => 'Aucun',
         ],
-
     ],
-
     'roles-table' => [
         'caption'       => '{1} :count rôle au total|[2,*] :count Rôles au total',
         'id'            => 'Id',
@@ -93,11 +81,9 @@ return [
         'actions'       => 'Actions',
         'none'          => 'Aucun élément de rôle',
     ],
-
     'roles-deleted-table' => [
         'caption'       => '{1} :count Rôle Éffacé au total|[2,*] :count Rôles Éffacés au total',
     ],
-
     'permissions-table' => [
         'caption'       => '{1} :count permission au total|[2,*] :count permissions au total',
         'id'            => 'Id',
@@ -111,11 +97,9 @@ return [
         'actions'       => 'Actions',
         'none'          => 'Permission',
     ],
-
     'permissions-deleted-table' => [
         'caption'       => '{1} :count permission Éffacée au total|[2,*] :count permissions Éffacées autotal',
     ],
-
     'buttons' => [
         'create-new-role'               => 'Créer un nouveau rôle',
         'show-deleted-roles'            => 'Rôles supprimés',
@@ -144,7 +128,6 @@ return [
         'restore-all-permissions'       => 'Restaurer toutes les Permissions Éffacées',
         'destroy-all-permissions'       => 'Supprimer toutes les Permissions Éffacées',
     ],
-
     'tooltips' => [
         'view-user'                 => 'Voir Utilisateur',
         'delete-role'               => 'Éffacer le rôle',
@@ -169,7 +152,6 @@ return [
         'show-deleted-role'         => 'Afficher le rôle',
         'show-deleted-permission'   => 'Permission',
     ],
-
     'modals' => [
         'delete_modal_title'            => 'Éffacer :type :item',
         'destroy_modal_title'           => 'Supprimer :type :item',
@@ -192,7 +174,6 @@ return [
         'destroyAllPermissionsTitle'    => 'Supprimer TOUTES les Permissions supprimées',
         'destroyAllPermissionsMessage'  => 'Êtes-vous sûr de vouloir SUPPRIMER TOUTES les Permissions supprimées?',
     ],
-
     'flash-messages' => [
         'close'                             => 'Fermer',
         'success'                           => 'Succès',
@@ -219,7 +200,6 @@ return [
         'errorDestroyingAllPermissions'     => 'Erreur détruisant les Permissions supprimées',
         'successRestoredPermission'         => 'Permission restaurée avec succès : :permission',
     ],
-
     'forms' => [
         'roles-form' => [
             'role-name' => [

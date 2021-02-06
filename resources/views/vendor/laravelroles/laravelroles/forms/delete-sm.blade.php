@@ -14,7 +14,6 @@
         $formAction = route('laravelroles::permissions.destroy', $item->id);
     }
 @endphp
-
 <form action="{{ $formAction }}" method="POST" accept-charset="utf-8" data-toggle="tooltip" title="{{ $btnTooltip }}" class="{{ $formClass }}" >
     {{ csrf_field() }}
     {{ method_field('DELETE') }}

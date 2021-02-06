@@ -11,7 +11,6 @@
          </div>
             @foreach ($data as $study)
                 <div class="col-md-3">
-                
                     <div class="box ">
                         <form role="form" action="{{ route('back.pmb.studi.kouta.update', $study->id) }}" method="post">
                             @method('patch')
@@ -25,19 +24,14 @@
                                     <input type="number" name="kouta" value="{{ old('kouta') ?? $study->kouta }}"
                                         class="form-control">
                                 </div>
-
                             </div>
                             <div class="box-footer text-right">
                                 <button type="submit" class="btn btn-success">SIMPAN</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
-
             @endforeach
         </div>
-
-
     </section>
 @endsection

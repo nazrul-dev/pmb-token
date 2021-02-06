@@ -1,16 +1,9 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 class CreateTokensTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('token', function (Blueprint $table) {
@@ -22,15 +15,8 @@ class CreateTokensTable extends Migration
             $table->integer('gelombang');
             $table->integer('use_token')->default(0);
             $table->timestamps();
-          
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('token');

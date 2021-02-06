@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Traits;
-
 use Webpatser\Uuid\Uuid as UuidUuid;
-
 trait Uuid
 {
     protected static function boot()

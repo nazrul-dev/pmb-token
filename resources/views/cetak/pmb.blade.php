@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +9,10 @@
         body {
             font-size: 9px
         }
-
         table {
             border-collapse: collapse;
             width: 100%;
         }
-
         table td,
         table th {
             border: 1px solid #333;
@@ -25,13 +22,9 @@
             padding-top: 10px;
             padding-bottom: 10px;
             text-align: center;
-
         }
-
     </style>
-
 </head>
-
 <body>
     <table>
         <thead>
@@ -54,5 +47,4 @@
         </tbody>
     </table>
 </body>
-
 </html>

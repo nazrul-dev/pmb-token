@@ -1,7 +1,5 @@
 @extends('_layouts.back')
-
 @section('content')
-
     <section class="content" style="  max-width: 400px;">
         <div class="box">
             <div class="box-body">
@@ -21,7 +19,6 @@
                         <span style="margin-right:5px">Pembuat</span>
                         {{-- <h5 class="text-bold" style="margin-top: 1px; margin-right:5px">{{ $token->generated->name }}</h5> --}}
                     </div>
-                  
                     <div class="col-md-12 text-center">
                         <span style="margin-right:5px">Email</span>
                         <h5 class="text-bold" style="margin-top: 1px;margin-right:5px">{{ $token->email }}</h5>
@@ -41,9 +38,7 @@
                     </div>
                 </div>
                 <button class="btn btn-success btn-block">PRINT STRUK PMB</button>
-
             </div>
         </div>
     </section>
-
 @endsection

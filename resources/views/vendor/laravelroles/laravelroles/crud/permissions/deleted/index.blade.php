@@ -1,9 +1,7 @@
 @extends(config('roles.bladeExtended'))
-
 @section(config('roles.titleExtended'))
     {!! trans('laravelroles::laravelroles.titles.delete-permissions-dashboard') !!}
 @endsection
-
 @php
     switch (config('roles.bootstapVersion')) {
         case '3':
@@ -20,7 +18,6 @@
     }
     $bootstrapCardClasses = (is_null(config('roles.bootstrapCardClasses')) ? '' : config('roles.bootstrapCardClasses'));
 @endphp
-
 @section(config('roles.bladePlacementCss'))
     @if(config('roles.enabledDatatablesJs'))
         <link rel="stylesheet" type="text/css" href="{{ config('roles.datatablesCssCDN') }}">
@@ -31,44 +28,33 @@
     @include('laravelroles::laravelroles.partials.styles')
     @include('laravelroles::laravelroles.partials.bs-visibility-css')
 @endsection
-
 @section('content')
-
     @include('laravelroles::laravelroles.partials.flash-messages')
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 @include('laravelroles::laravelroles.tables.permissions-table',['isDeletedPermissions' => true])
             </div>
         </div>
-
         <div class="clearfix mb-4"></div>
-
     </div>
-
     @include('laravelroles::laravelroles.modals.confirm-modal',[
         'formTrigger' => 'confirmDestroyPermissions',
         'modalClass' => 'danger',
         'actionBtnIcon' => 'fa-trash-o'
     ])
-
     @include('laravelroles::laravelroles.modals.confirm-modal',[
         'formTrigger' => 'confirmRestorePermissions',
         'modalClass' => 'success',
         'actionBtnIcon' => 'fa-check'
     ])
-
 @endsection
-
 @section(config('roles.bladePlacementJs'))
     @if(config('roles.enablejQueryCDN'))
         <script type="text/javascript" src="{{ config('roles.JQueryCDN') }}"></script>
     @endif
-
     @include('laravelroles::laravelroles.scripts.confirm-modal', ['formTrigger' => '#confirmDestroyPermissions'])
     @include('laravelroles::laravelroles.scripts.confirm-modal', ['formTrigger' => '#confirmRestorePermissions'])
-
     @if (config('roles.enabledDatatablesJs'))
         @include('laravelroles::laravelroles.scripts.datatables')
     @endif
@@ -76,6 +62,5 @@
         @include('laravelroles::laravelroles.scripts.tooltips')
     @endif
 @endsection
-
 @yield('inline_template_linked_css')
 @yield('inline_footer_scripts')

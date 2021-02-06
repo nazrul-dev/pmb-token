@@ -9,7 +9,6 @@
         {!! session('message') !!}
     </div>
 @endif
-
 @if (session('success'))
     <div class="alert alert-success alert-dismissable fade show" role="alert">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">
@@ -25,7 +24,6 @@
         {!! session('success') !!}
     </div>
 @endif
-
 @if(session()->has('status'))
     @if(session()->get('status') == 'wrong')
         <div class="alert alert-danger status-box alert-dismissable fade show" role="alert">
@@ -39,7 +37,6 @@
         </div>
     @endif
 @endif
-
 @if (session('error'))
     <div class="alert alert-danger alert-dismissable fade show" role="alert">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">
@@ -55,7 +52,6 @@
         {!! session('error') !!}
     </div>
 @endif
-
 @if (session('errors') && count($errors) > 0)
     <div class="alert alert-danger alert-dismissable fade show" role="alert">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">

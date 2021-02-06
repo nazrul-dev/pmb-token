@@ -1,28 +1,20 @@
 <?php
-
 namespace App\Models;
-
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-
 class Token extends Model
 {
     use Uuid;
-
     protected $table        = "token";
     protected $guarded      = [];
     protected $primaryKey   = 'uuid';
     public $incrementing    = false;
     protected $keyType      = 'string';
     use HasFactory;
-    
-  
     public function maba(){
         return $this->hasOne(Maba::class);
     }
-
     public static function generate_token() {
         // Default tokens contain no "ambiguous" characters: 1,i,0,o
         $num_segments = 5;
@@ -55,11 +47,9 @@ class Token extends Model
         }
         return $license_string;
     }
-
     public static function generate_password(){
         $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
         $password = substr($random, 0, 10);
-
         return $password;
     }
 }

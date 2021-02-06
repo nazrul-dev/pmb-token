@@ -7,7 +7,6 @@
     $modalTitle     = '';
     $modalMessage   = '';
     $dataTarget     = '';
-
     if($type == 'role') {
         $formAction     = route('laravelroles::role-restore', $item->id);
         $btnTooltip     = trans('laravelroles::laravelroles.tooltips.restore-role');
@@ -37,9 +36,7 @@
         $btnClass   .= ' btn-md mb-0';
         $formClass  = 'mb-0';
     }
-
 @endphp
-
 <form action="{{ $formAction }}" method="POST" accept-charset="utf-8" data-toggle="tooltip" title="{{ $btnTooltip }}" class="{{ $formClass }}" >
     {{ csrf_field() }}
     {{ method_field('PUT') }}

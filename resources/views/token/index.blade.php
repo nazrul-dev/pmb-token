@@ -1,7 +1,5 @@
 @extends('_layouts.back')
-
 @section('content')
-
     <section class="content">
         <div class="box">
             <div class="box-header">
@@ -15,7 +13,6 @@
                             <th>Nama </th>
                             <th>Email</th>
                             <th>Nomor Token</th>
-                   
                             <th>Periode</th>
                             <th>Status</th>
                             <th>Created</th>
@@ -28,22 +25,16 @@
                         @foreach ($tokens as $token)
                             <tr>
                                 <td width="">{{ $i++ }}</td>
-                               
                                 <td>{{ $token->email }}</td>
                                 <td>{{ $token->token }}</td>
-                                
                                 <td>GEL. {{ $token->gelombang }} / AGK.{{ $token->angkatan }}</td>
                                 <td>{{ $token->use_token == 1 ? 'Terpakai' : 'Ready' }}</td>
                                 <td>{{ $token->created_at->diffForHumans() }}</td>
                             </tr>
                         @endforeach
-
                     </tbody>
-
                 </table>
-
             </div>
         </div>
     </section>
-
 @endsection
