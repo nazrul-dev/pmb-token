@@ -34,7 +34,7 @@
 
         <header class="main-header">
 
-            <a href="index2.html" class="logo">
+            <a href="{{ url('back') }}" class="logo">
 
                 <span class="logo-mini"><b>PMB</b></span>
 
@@ -71,14 +71,7 @@
 
         </div>
 
-        <footer class="main-footer">
-
-            <div class="pull-right hidden-xs">
-                Anything you want
-            </div>
-
-            <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-        </footer>
+       
     </div>
     <div class="modal fade" id="modal-cetak">
         <div class="modal-dialog">
