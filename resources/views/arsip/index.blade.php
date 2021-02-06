@@ -5,7 +5,7 @@
             var table = $('.yajra-datatable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ url('api/maba/arsip') }}",
+                ajax: "{{ url('api/maba/archive') }}",
                 columns: [
                     {
                         data: 'biodata.nama_lengkap',

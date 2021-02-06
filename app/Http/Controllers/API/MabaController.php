@@ -12,23 +12,7 @@ use Illuminate\Support\Facades\Crypt;
 
 class MabaController extends Controller
 {
-    public function arsip()
-    {
-        $data   = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->where('arsip', 1)->latest()->get();
-        return Dbs::of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function ($row) {
-                $actionBtn = '
-                <a href="' . route('back.maba.show', $row->user->uuid) . '" class="btn btn-info  btn-xs"><i class="fa fa-eye"></i></a>';
-                return $actionBtn;
-            })
-            ->addColumn('periode', function ($row) {
-                $periode = 'AGK.' . $row->token->angkatan . '/GEL.' . $row->token->gelombang;
-                return $periode;
-            })
-            ->rawColumns(['action', 'periode'])
-            ->make(true);
-    }
+    
     public function get_current_maba()
     {
         $data   = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->where('arsip', 0)->latest()->get();
@@ -66,7 +50,35 @@ class MabaController extends Controller
     public function pmb_watch_all()
     {
     }
-    public function scanformulir(Biodata $biodata)
+
+    public function _scanQr($signature)
     {
+    }
+
+    public function get_archive_maba()
+    {
+        $data   = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->where('arsip', 1)->latest()->get();
+        return Dbs::of($data)
+            ->addIndexColumn()
+            ->addColumn('action', function ($row) {
+                $actionBtn = '
+                <a href="' . route('back.maba.show', $row->user->uuid) . '" title="INFO DETAIL" class="btn btn-info  btn-xs"><i class="fa fa-eye"></i></a>'; 
+              
+                return $actionBtn;
+            })
+            ->addColumn('periode', function ($row) {
+                $periode = 'AGK.' . $row->token->angkatan . '/GEL.' . $row->token->gelombang;
+                return $periode;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+    }
+
+    public function get_token_used(){
+
+    }
+
+    public function get_token_all(){
+        
     }
 }
