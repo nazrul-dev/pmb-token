@@ -19,13 +19,7 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE2/dist/css/skins/skin-green.min.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-    </style>
+    
 
 </head>
 
@@ -50,7 +44,8 @@
                 <div class="pull-right">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" style="margin-top:7px; margin-right:50px; background-color:#305f49" class="btn btn-danger">KELUAR AKUN</button>
+                        <button type="submit" style="margin-top:7px; margin-right:50px; background-color:#305f49"
+                            class="btn btn-danger">KELUAR AKUN</button>
                     </form>
                 </div>
 
@@ -71,7 +66,7 @@
 
         </div>
 
-       
+
     </div>
     <div class="modal fade" id="modal-cetak">
         <div class="modal-dialog">
@@ -142,6 +137,7 @@
 
         </div>
     </div>
+    
     <script src="{{ asset('AdminLTE2/bower_components/jquery/dist/jquery.min.js') }}"></script>
 
     <script src="{{ asset('AdminLTE2/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -153,27 +149,11 @@
     </script>
     <script src="{{ asset('js/lightbox/dist/js/lightbox.js') }}"></script>
     <script src="{{ asset('AdminLTE2/dist/js/adminlte.min.js') }}"></script>
-    <script src="{{ asset('js/instascan/scan.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    @yield('extjs')
-    <script>
-        $('.date').datepicker({
-            autoclose: true
-        });
-        $('.datatables').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': true,
-            'ordering': false,
-            'info': true,
-            'autoWidth': false,
-            "columnDefs": [{
-                "targets": 0,
-                "orderable": false
-            }]
-        })
 
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    @yield('extjs')
+  
     @stack('scripts')
 
 </body>

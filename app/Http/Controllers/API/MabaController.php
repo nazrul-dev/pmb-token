@@ -81,4 +81,9 @@ class MabaController extends Controller
     public function get_token_all(){
         
     }
+
+    public function test(){
+        $data = Biodata::get();
+        dd($data);
+    }
 }

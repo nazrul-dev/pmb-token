@@ -8,7 +8,7 @@ class Study extends Model
     use HasFactory;
     protected $guarded = [];
     public function biodata(){
-        return $this->hasMany(Biodata::class);
+        return $this->hasMany(Biodata::class, 'prodi');
     }
     public function faculty(){
         return $this->belongsTo(Faculty::class);

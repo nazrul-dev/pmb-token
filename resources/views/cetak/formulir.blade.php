@@ -26,7 +26,7 @@
             </td>
             <td width="30%" align="right">
                 @php
-                     $signature = $maba->biodata->no_registrasi;
+                     $signature = str_replace('/', '-', $maba->biodata->no_registrasi);
                      $qrqode = QrCode::generate($signature);
                      $qrqode = str_replace('<?xml version="1.0" encoding="UTF-8"?>', '', $qrqode );
                 @endphp
