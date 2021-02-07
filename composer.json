@@ -20,7 +20,6 @@
         "laravel/ui": "^3.2",
         "laravolt/indonesia": "^0.29.0",
         "maatwebsite/excel": "^3.1",
-        "ramsey/uuid": "^4.1",
         "simplesoftwareio/simple-qrcode": "~4",
         "webpatser/laravel-uuid": "^3.0",
         "yajra/laravel-datatables-oracle": "~9.0"

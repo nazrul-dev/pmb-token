@@ -6,8 +6,12 @@ use App\Models\Study;
 use App\Models\Token;
 class DashboardController extends Controller
 {
+    
     public function index()
     {
+        if(auth()->user()->akses === 'maba'){
+            return redirect()->route('back.maba.berkas', auth()->user()->uuid);
+        }
         $pengumuman         = Pengumuman::latest()->limit(3)->get();
         $prodi              = Study::get()->count();
         $maba               = Maba::where('arsip', 0)->get()->count();

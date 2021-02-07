@@ -218,7 +218,7 @@
                                 <div class="col-xs-12 border">
                                     <div class="form-group">
                                         <br>
-                                        <label for="ktp">Kartu Keluarga</label>
+                                        <label for="ktp">KTP</label>
                                         <input type="file" required id="ktp" name="ktp">
                                         <p class="help-block">Format File JPG|PNG</p>
                                     </div>

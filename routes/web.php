@@ -20,17 +20,21 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/validation', function () {
-    return view('validation');
+Route::group( ['middleware' => 'guest' ], function()
+{
+    Route::get('/validation', function () {
+        return view('validation');
+    });
+    
+    Route::get('/validation', function () {
+        return view('validation');
+    });
+    
+    Route::get('after/store/{email}', function ($email) {
+        return view('afterpendaftaran', compact('email'));
+    })->name('after.store');
+      
 });
-
-Route::get('/validation', function () {
-    return view('validation');
-});
-
-Route::get('after/store/{email}', function ($email) {
-    return view('afterpendaftaran', compact('email'));
-})->name('after.store');
 
 
 Route::post('maba/store', [MabaController::class, 'store'])->name('maba.store');
@@ -58,8 +62,10 @@ Route::middleware('auth')->name('back.')->prefix('back')->group(function () {
     // ADMIN TOKEN ROUTE 
     Route::middleware('Akses:admin,superadmin')->resource('token', TokenController::class);
     // ADMIN TOKEN ROUTE 
+
+    Route::get('maba/{id}/show', [MabaController::class, 'show'])->name('maba.show');
     Route::middleware(['Akses:panitia,superadmin'])->group(function () {
-        Route::resource('maba', MabaController::class, ['except' => ['store', 'create']]);
+        Route::resource('maba', MabaController::class, ['except' => ['show','store', 'create']]);
         Route::resources([
             'faculty'       => FacultyController::class,
             'study'         => StudyController::class

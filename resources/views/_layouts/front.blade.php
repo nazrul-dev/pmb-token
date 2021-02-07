@@ -22,6 +22,7 @@
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
 </head>
 
 <body class="hold-transition skin-green   layout-top-nav">
@@ -39,9 +40,12 @@
 
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="{{ url('/') }}">BERANDA</a></li>
-                            <li><a href="{{ route('validation') }}">PENDAFTARAN</a></li>
-                            <li><a href="{{ route('validation') }}">CARA MENDAFTAR</a></li>
+                            <li class="{{ request()->is('/') ? 'active' : '' }}"><a
+                                    href="{{ url('/') }}">BERANDA</a></li>
+                            <li class="{{ request()->is('validation*') ? 'active' : '' }}"><a
+                                    href="{{ route('validation') }}">PENDAFTARAN</a></li>
+                            <li class=""><a href="{{ asset('pmbunipo-beta.apk') }}">DOWNLOAD VERSI ANDROID</a></li>
+                            {{-- <li><a href="{{ route('validation') }}">CARA MENDAFTAR</a></li> --}}
                             <li><a href="https://unipo.ac.id">INFO UNIVERSITAS</a></li>
                         </ul>
                     </div>
@@ -50,10 +54,16 @@
                         <ul class="nav navbar-nav">
 
                             <li>
+                                @auth
+                                    <a href="{{ route('back.dashboard') }}">
+                                        <i class="fa fa-sign-in"></i> PANEL
+                                    </a>
+                                @else
+                                    <a href="{{ route('login') }}">
+                                        <i class="fa fa-sign-in"></i> LOGIN
+                                    </a>
+                                @endauth
 
-                                <a href="{{ route('login') }}">
-                                    <i class="fa fa-sign-in"></i> LOGIN
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -65,20 +75,14 @@
 
         <div class="content-wrapper">
             <div class="container">
+                
                 @yield('content')
-                <div class="box">
-                    <video id="camera"></video>
-                    <div id="qrcode" />
-                </div>
-                <div class="box">
-                    <canvas id="myChart" width="400" height="100"></canvas>
 
-                </div>
             </div>
 
         </div>
-       
-        @include('scan')
+
+        {{-- @include('scan') --}}
         <footer class="main-footer">
             <div class="container">
                 <div class="pull-right hidden-xs">
@@ -102,9 +106,37 @@
     </script>
     <script src="{{ asset('AdminLTE2/dist/js/adminlte.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ asset('js/instascan.min.js') }}"></script>
-    <script>
+    <!--Start of Tawk.to Script-->
+    <!--Start of Tawk.to Script-->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        $(function() {
+            $('#tawkchat-chat-bubble-close').filter(
+                    ":has(img[src*='https://static-v.tawk.to/a-v3/images/bubbles/168-r-br.svg'])")
+                .find("div[style*='display: none']").remove()
+        });
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/601fea4ea9a34e36b974a6ff/1etuc1gq0';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+
+    </script>
+    <!--End of Tawk.to Script-->
+    <!--End of Tawk.to Script-->
+    <!--End of Tawk.to Script-->
+    {{-- <script>
         
         var DataProdi = [];
         var JumlahMaba = [];
@@ -148,7 +180,7 @@
 
         
         
-        </script>
+        </script> --}}
     @yield('extjs')
     <script>
         $('.date').datepicker({
@@ -157,7 +189,7 @@
         });
 
     </script>
-    <script>
+    {{-- <script>
         let url = "{{ url('api/found/') }}";
         let scanner = new Instascan.Scanner({
             video: document.getElementById("camera"),
@@ -211,7 +243,7 @@
             });
         }
 
-    </script>
+    </script> --}}
 </body>
 
 </html>

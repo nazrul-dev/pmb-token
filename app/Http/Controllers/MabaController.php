@@ -18,6 +18,10 @@ class MabaController extends Controller
     public function berkas($id)
     {
         $user = User::with(['maba.biodata'])->find($id);
+        $statusberkas = Maba::cekberkas($user->maba->biodata->uuid);
+        if($statusberkas === true){
+            return redirect()->route('back.maba.show', $user->uuid);
+        }
         return view('maba.berkas', compact('user'));
     }
 
@@ -147,6 +151,9 @@ class MabaController extends Controller
     {
         $user = User::with(['maba.token', 'maba.biodata', 'maba.biodata.getfakultas', 'maba.biodata.getprodi'])->find($id);
         $statusberkas = Maba::cekberkas($user->maba->biodata->uuid);
+        if($statusberkas === false){
+            return redirect()->route('back.maba.berkas', $user->uuid);
+        }
       
         return view('maba.show', compact(['user', 'statusberkas']));
     }

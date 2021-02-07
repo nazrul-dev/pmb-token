@@ -86,7 +86,7 @@
                     </div>
                 </form>
                 <hr>
-                <a href="login.html" class="text-center text-black">Belum Punya Token Pendaftaran ?</a>
+                {{-- <a href="login.html" class="text-center text-black">Belum Punya Token Pendaftaran ?</a> --}}
             </div>
         </div>
     </section>

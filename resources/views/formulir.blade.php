@@ -97,8 +97,8 @@
 @endsection
 @section('content')
     <section class="content">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-2 col-xs-12"></div>
+        <div class="col-md-8 col-xs-12">
             <div class="box">
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -271,6 +271,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2 col-xs-12"></div>
     </section>
 @endsection

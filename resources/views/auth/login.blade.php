@@ -40,11 +40,11 @@
                     <button type="submit" class="btn btn-success">
                         {{ __('Login') }}
                     </button>
-                    @if (Route::has('password.request'))
+                    {{-- @if (Route::has('password.request'))
                         <a class="btn btn-link" href="{{ route('password.request') }}">
                            Lupa Password
                         </a>
-                    @endif
+                    @endif --}}
                 </div>
             </form>
         </div>

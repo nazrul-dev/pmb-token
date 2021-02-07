@@ -3,15 +3,15 @@
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#scan">
-            Launch Default Modal
-          </button>
-        <li><a href="{{ url('back/') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+
+
         @maba
         <li><a href="{{ route('back.maba.show', auth()->user()->uuid) }}"><i
                     class="fa fa-file-word-o"></i><span>Formulir Saya</span></a></li>
         <li><a href="{{ route('back.maba.berkas', auth()->user()->uuid) }}"><i
                     class="fa fa-file-text"></i><span>Berkas Persyaratan</span></a></li>
+    @else
+        <li><a href="{{ url('back/') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         @endmaba
 
         @superadmin
