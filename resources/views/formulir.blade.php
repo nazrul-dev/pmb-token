@@ -2,6 +2,10 @@
 @section('extjs')
     <script>
         $(function() {
+            $('.date').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd',
+        });
             $.ajax({
                 url: "{{ url('api/provinsi') }}",
                 method: 'GET',
@@ -119,7 +123,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Nama Lengkap</label>
                             <div class="col-sm-7">
-                                <input type="text" name="nama_lengkap" class="form-control" value="">
+                                <input type="text" name="nama_lengkap" value="{{ old('nama_lengkap') }}" class="form-control" value="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -132,47 +136,47 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Tempat Lahir</label>
                             <div class="col-sm-6">
-                                <input type="text" name="tempat_lahir" class="form-control" placeholder="cth: Marisa">
+                                <input type="text" name="tempat_lahir" value="{{ old('tempat_lahir') }}" class="form-control" placeholder="cth: Marisa">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Tanggal Lahir</label>
                             <div class="col-sm-5">
-                                <input type="text" name="tanggal_lahir" placeholder="1998-02-09" class="form-control date">
+                                <input type="text" readonly name="tanggal_lahir" value="{{ old('tanggal_lahir') }}"   class="form-control date">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Jenis kelamin</label>
                             <div class="col-sm-5">
                                 <select name="gender" class="form-control" id="">
-                                    <option value="Laki-laki">Laki-laki</option>
-                                    <option value="Perempuan">Perempuan</option>
+                                    <option value="Laki-laki" {{ old('gender') === 'Laki-laki' ? 'selected' : '' }}">Laki-laki</option>
+                                    <option value="Perempuan" {{ old('gender') === 'Perempuan' ? 'selected' : ''}}">Perempuan</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Asal Sekolah</label>
                             <div class="col-sm-7">
-                                <input type="text" name="asal_sekolah" class="form-control"
+                                <input type="text" value="{{ old('asal_sekolah') }}" name="asal_sekolah" class="form-control"
                                     placeholder="cth: SMA 1 POHUWATO">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Tahun Lulus</label>
                             <div class="col-sm-3">
-                                <input type="number" name="tahun_lulus" class="form-control" placeholder="cth:2020">
+                                <input type="number"  value="{{ old('tahun_lulus') }}" name="tahun_lulus" class="form-control" placeholder="cth:2020">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Agama</label>
                             <div class="col-sm-5">
                                 <select name="agama" class="form-control" id="">
-                                    <option value="Islam">Islam</option>
-                                    <option value="Katolik">Kristen Katolik</option>
-                                    <option value="Protestan">Kristen Protestan</option>
-                                    <option value="Hindu">Hindu</option>
-                                    <option value="Budha">Budha</option>
-                                    <option value="Konghucu">Konghucu</option>
+                                    <option value="Islam" {{ old('agama') === 'Islam' ? 'selected' : ''}}>Islam</option>
+                                    <option value="Katolik" {{ old('agama') === 'Katolik' ? 'selected' : ''}}>Kristen Katolik</option>
+                                    <option value="Protestan" {{ old('agama') === 'Protestan' ? 'selected' : ''}}>Kristen Protestan</option>
+                                    <option value="Hindu" {{ old('agama') === 'Hindu' ? 'selected' : ''}}>Hindu</option>
+                                    <option value="Budha" {{ old('agama') === 'Budha' ? 'selected' : ''}}>Budha</option>
+                                    <option value="Konghucu" {{ old('agama') === 'Konghucu' ? 'selected' : ''}}>Konghucu</option>
                                 </select>
                             </div>
                         </div>
@@ -180,11 +184,11 @@
                             <label class="col-sm-3 control-label">Ukuran Baju</label>
                             <div class="col-sm-5">
                                 <select name="ukuran_baju" class="form-control" id="">
-                                    <option value="XXL">XXL</option>
-                                    <option value="XL">XL</option>
-                                    <option value="L">L</option>
-                                    <option value="M">M</option>
-                                    <option value="S">S</option>
+                                    <option value="XXL" {{ old('ukuran_baju') === 'XXL' ? 'selected' : ''}}>XXL</option>
+                                    <option value="XL" {{ old('ukuran_baju') === 'XL' ? 'selected' : ''}}>XL</option>
+                                    <option value="L" {{ old('ukuran_baju') === 'L' ? 'selected' : ''}}>L</option>
+                                    <option value="M" {{ old('ukuran_baju') === 'M' ? 'selected' : ''}}>M</option>
+                                    <option value="S" {{ old('ukuran_baju') === 'S' ? 'selected' : ''}}>S</option>
                                 </select>
                             </div>
                         </div>
@@ -192,10 +196,10 @@
                             <label class="col-sm-3 control-label">Jurusan</label>
                             <div class="col-sm-5">
                                 <select name="jurusan" class="form-control" id="">
-                                    <option value="IPA">IPA</option>
-                                    <option value="IPS">IPS</option>
-                                    <option value="BAHASA">BAHASA</option>
-                                    <option value="LAINNYA">LAINNYA</option>
+                                    <option value="IPA" {{ old('jurusan') === 'IPA' ? 'selected' : ''}}>IPA</option>
+                                    <option value="IPS" {{ old('jurusan') === 'IPS' ? 'selected' : ''}}>IPS</option>
+                                    <option value="BAHASA" {{ old('jurusan') === 'BAHASA' ? 'selected' : ''}}>BAHASA</option>
+                                    <option value="LAINNYA" {{ old('jurusan') === 'LAINNYA' ? 'selected' : ''}}>LAINNYA</option>
                                 </select>
                             </div>
                         </div>
@@ -226,13 +230,13 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Alamat</label>
                             <div class="col-sm-7">
-                                <input type="text" name="alamat" class="form-control" placeholder="cth Jl. Trans Sulawesi">
+                                <input type="text" value="{{ old('alamat') }}" name="alamat" class="form-control" placeholder="cth Jl. Trans Sulawesi">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Telp/HP</label>
                             <div class="col-sm-5">
-                                <input type="number" name="telepon" class="form-control" placeholder="cth: 082291281291">
+                                <input type="number"  value="{{ old('telepon') }}" name="telepon" class="form-control" placeholder="cth: 082291281291">
                             </div>
                         </div>
                         <hr>
@@ -242,8 +246,8 @@
                             <label class="col-sm-3 control-label">pilihan kelas</label>
                             <div class="col-sm-7">
                                 <select name="pilihan_kelas" class="form-control" id="">
-                                    <option value="pagi" selected> Reguler Pagi</option>
-                                    <option value="sore"> Reguler Sore</option>
+                                    <option value="pagi"  {{ old('pilihan_kelas') === 'pagi' ? 'selected' : ''}}> Reguler Pagi</option>
+                                    <option value="sore" {{ old('pilihan_kelas') === 'sore' ? 'selected' : ''}}> Reguler Sore</option>
                                 </select>
                             </div>
                         </div>

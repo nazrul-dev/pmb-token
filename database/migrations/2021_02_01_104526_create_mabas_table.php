@@ -8,8 +8,8 @@ class CreateMabasTable extends Migration
     {
         Schema::create('maba', function (Blueprint $table) {
             $table->uuid('uuid');
-            $table->uuid('user_uuid');
-            $table->uuid('token_uuid');
+            $table->char('user_uuid');
+            $table->char('token_uuid');
             $table->boolean('arsip')->default(false);
             $table->timestamps();
         });

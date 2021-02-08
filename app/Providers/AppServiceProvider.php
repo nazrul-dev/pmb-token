@@ -3,6 +3,9 @@ namespace App\Providers;
 use ConsoleTVs\Charts\Registrar as Charts;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Jenssegers\Agent\Agent;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     public function register()
@@ -17,6 +20,14 @@ class AppServiceProvider extends ServiceProvider
         $charts->register([
             \App\Charts\ProdiChart::class
         ]);
+        
+        Blade::if('mobile', function(){
+            $agent = new Agent();
+            if($agent->isPhone() === true){
+                echo 'landscape';
+            }
+           
+        });
 
         Blade::if('maba', function () {
             return auth()->check() && auth()->user()->akses === 'maba';

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PANEL PMB | {{ Str::ucfirst(auth()->user()->akses) }}</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+ 
     <link rel="stylesheet" href="{{ asset('AdminLTE2/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminLTE2/bower_components/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminLTE2/bower_components/Ionicons/css/ionicons.min.css') }}">
@@ -23,7 +24,9 @@
 
 </head>
 
-<body class="hold-transition skin-green sidebar-mini sidebar-collapse">
+<body id="body" class="hold-transition skin-green sidebar-mini sidebar-collapse" data-view="@mobile
+@endmobile">
+    
     <div class="wrapper">
 
         <header class="main-header">
@@ -151,7 +154,17 @@
     <script src="{{ asset('AdminLTE2/dist/js/adminlte.min.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <script>
+        $(function(){
+            let mode = $('#body').attr('data-view');
+            if(mode == 'landscape' || mode){
+                screen.orientation.lock("landscape-primary");
+            }else{
+                screen.orientation.unlock();
+            }
+        });
+        
+    </script>
     @yield('extjs')
   
     @stack('scripts')

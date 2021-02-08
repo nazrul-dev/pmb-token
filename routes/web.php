@@ -15,6 +15,7 @@ use App\Models\Pengumuman;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 Auth::routes();
 Route::get('/', function () {
     return view('home');
@@ -30,9 +31,6 @@ Route::group( ['middleware' => 'guest' ], function()
         return view('validation');
     });
     
-    Route::get('after/store/{email}', function ($email) {
-        return view('afterpendaftaran', compact('email'));
-    })->name('after.store');
       
 });
 

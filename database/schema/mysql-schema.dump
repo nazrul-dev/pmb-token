@@ -98,8 +98,8 @@ DROP TABLE IF EXISTS `maba`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `maba` (
   `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint unsigned NOT NULL,
-  `token_id` bigint unsigned NOT NULL,
+  `user_uuid` bigint unsigned NOT NULL,
+  `token_uuid` bigint unsigned NOT NULL,
   `arsip` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL

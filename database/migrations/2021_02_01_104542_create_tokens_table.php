@@ -13,6 +13,7 @@ class CreateTokensTable extends Migration
             $table->string('password');
             $table->integer('angkatan');
             $table->integer('gelombang');
+            $table->char('generate');
             $table->integer('use_token')->default(0);
             $table->timestamps();
         });

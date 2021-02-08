@@ -28,7 +28,7 @@
         return /^[\d ()+-]+$/.test(value); // Allow digits only, using a RegExp
     });
     $(".token").keyup(function() {
-        var maxChars = 24;
+        var maxChars = 19;
         if ($(this).val().length > maxChars) {
             $(this).val($(this).val().substr(0, maxChars));
         }

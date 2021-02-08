@@ -127,10 +127,14 @@ class MabaController extends Controller
                 if ($prodi->kouta > 1) {
                     $prodi->decrement('kouta', 1);
                 }
-                // $this->send_email_account($getByDataToken);
-                return redirect(route('after.store', $user->email));
+                if($this->pengaturan()['data']->email_account == 1){
+                    $this->send_email_account($validData);
+                }
+                
+                return view('afterpendaftaran', compact('validData'));
+               
             } catch (\Exception $e) {
-                dd($e);
+                return abort('404');
             }
         } else {
             return abort('404');
@@ -199,6 +203,7 @@ class MabaController extends Controller
 
         $signature = $request->input('signature');
         $data =  $request->input()[0];
+      
         return view('formulir', compact(['data', 'signature']));
     }
 

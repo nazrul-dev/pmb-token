@@ -3,6 +3,8 @@ namespace App\Models;
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
 class Token extends Model
 {
     use Uuid;
@@ -17,7 +19,7 @@ class Token extends Model
     }
     public static function generate_token() {
         // Default tokens contain no "ambiguous" characters: 1,i,0,o
-        $num_segments = 5;
+        $num_segments = 4;
         $segment_chars = 4;
         $tokens = '1234567890';
         $license_string = '';
@@ -52,4 +54,18 @@ class Token extends Model
         $password = substr($random, 0, 10);
         return $password;
     }
+
+    protected static function booted()
+    {
+        static::creating(function ($model) {
+            $model->generate = Auth::id();
+         
+        });
+    }
+
+    public function generated(){
+        return $this->belongsTo(User::class, 'generate');
+    }
+
+
 }

@@ -14,6 +14,7 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
+        'akses'
     ];
     protected $hidden = [
         'password',
@@ -26,4 +27,10 @@ class User extends Authenticatable
     public function maba(){
         return $this->hasOne(Maba::class);
     }
+
+    public function token(){
+        return $this->hasMany(Token::class);
+    }
+
+    
 }

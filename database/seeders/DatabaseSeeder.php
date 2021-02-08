@@ -5,25 +5,35 @@ use App\Models\Pengaturan;
 use App\Models\Study;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
+use Laravolt\Indonesia\Seeds\CitiesSeeder;
+use Laravolt\Indonesia\Seeds\DistrictsSeeder;
+use Laravolt\Indonesia\Seeds\ProvincesSeeder;
+
 class DatabaseSeeder extends Seeder
 {
     public function run()
     {        
+      
+        $this->call(ProvincesSeeder::class);
+        $this->call(CitiesSeeder::class);
+        $this->call(DistrictsSeeder::class);
+
         User::create([
-            'email' => 'superadmin@superadmin.com',
-            'password' => bcrypt('password'),
+            'email' => 'nazrul.dev@gmail.com',
+            'password' => bcrypt('015999wisna'),
             'akses'  => 'superadmin'
         ]);
-        User::create([
-            'email' => 'panitia@panitia.com',
-            'password' => bcrypt('password'),
-            'akses'  => 'panitia'
-        ]);
-        User::create([
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('password'),
-            'akses'  => 'admin'
-        ]);
+        // User::create([
+        //     'email' => 'panitia@panitia.com',
+        //     'password' => bcrypt('password'),
+        //     'akses'  => 'panitia'
+        // ]);
+        // User::create([
+        //     'email' => 'admin@admin.com',
+        //     'password' => bcrypt('password'),
+        //     'akses'  => 'admin'
+        // ]);
         Faculty::create([
             'id'        => 1,
             'name' => 'SOSPOL',

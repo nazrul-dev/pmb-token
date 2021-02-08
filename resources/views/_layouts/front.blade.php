@@ -182,13 +182,7 @@
         
         </script> --}}
     @yield('extjs')
-    <script>
-        $('.date').datepicker({
-            autoclose: true,
-            format: 'yyyy-mm-dd',
-        });
 
-    </script>
     {{-- <script>
         let url = "{{ url('api/found/') }}";
         let scanner = new Instascan.Scanner({
