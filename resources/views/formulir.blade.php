@@ -207,7 +207,7 @@
                             <label class="col-sm-3 control-label">Provinsi</label>
                             <div class="col-sm-5">
                                 <select name="provinsi" id="province" class="form-control">
-
+                                    <option value="" selected>Pilih Provinsi</option>
                                 </select>
                             </div>
                         </div>
@@ -215,7 +215,7 @@
                             <label class="col-sm-3 control-label">Kabupaten / Kota</label>
                             <div class="col-sm-5">
                                 <select name="kabupaten" id="kabupaten" class="form-control">
-                                    <option value="">Pilih Kabupaten</option>
+                                    <option value="" selected>Pilih Kabupaten</option>
                                 </select>
                             </div>
                         </div>
@@ -223,7 +223,7 @@
                             <label class="col-sm-3 control-label">Kecamatan / Kota</label>
                             <div class="col-sm-5">
                                 <select name="kecamatan" id="kecamatan" class="form-control">
-                                    <option value="">Pilih kecamatan</option>
+                                    <option value="" selected>Pilih kecamatan</option>
                                 </select>
                             </div>
                         </div>
@@ -240,7 +240,7 @@
                             </div>
                         </div>
                         <hr>
-                        <h4 class="text-bold text-lg">&nbsp; &nbsp;&nbsp;&nbsp;Pilihan Pada Universitas Pohuwato</h4>
+                        <h4 class="text-bold text-lg">&nbsp; &nbsp;&nbsp;&nbsp;Pilihan Pada UNIPO</h4>
                         <hr>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">pilihan kelas</label>
@@ -255,7 +255,7 @@
                             <label class="col-sm-3 control-label">Fakultas</label>
                             <div class="col-sm-7">
                                 <select name="fakultas" class="form-control" id="faculty" required>
-
+                                    <option value="" selected>Pilih Fakultas</option>
                                 </select>
                             </div>
                         </div>
@@ -263,6 +263,7 @@
                             <label class="col-sm-3 control-label">Program Studi</label>
                             <div class="col-sm-7">
                                 <select name="prodi" class="form-control" id="study" disabled required>
+                                    <option value="" selected>Pilih Program Studi</option>
                                 </select>
                             </div>
                         </div>

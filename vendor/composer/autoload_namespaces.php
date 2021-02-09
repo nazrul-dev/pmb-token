@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Webpatser\\Uuid' => array($vendorDir . '/webpatser/laravel-uuid/src'),
+    'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
-    'Detection' => array($vendorDir . '/mobiledetect/mobiledetectlib/namespaced'),
 );

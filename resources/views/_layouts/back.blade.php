@@ -155,15 +155,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-        $(function(){
-            let mode = $('#body').attr('data-view');
-            if(mode == 'landscape' || mode){
-                screen.orientation.lock("landscape-primary");
-            }else{
-                screen.orientation.unlock();
-            }
-        });
-        
+      
     </script>
     @yield('extjs')
   

@@ -33,77 +33,83 @@
                             <div class="table-responsive">
                                 <table class="table table-borderless">
                                     <tbody>
-                                        <tr class="text-left text-bold">
+                                        <tr class="text-left text-bold bg-green">
                                             <td colspan="2"> INFORMASI DATA DIRI</td>
                                         </tr>
                                         <tr>
-                                            <td width="25%" class="text-right">Token Pendaftaran : </td>
+                                            <td width="25%" class="text-right text-bold">TOKEN PENDAFTARAN : </td>
                                             <td>{{ $user->maba->token->token }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="25%" class="text-right">Nomor Pendaftaran : </td>
+                                            <td width="25%" class="text-right text-bold">NO.PENDAFTARAN : </td>
                                             <td>{{ $user->maba->biodata->no_registrasi }}</td>
                                         </tr>
+                                        
+                                      
                                         <tr>
-                                            <td width="25%" class="text-right"> Gelombang : </td>
-                                            <td> Gelombang KE - <b>{{ $user->maba->biodata->gelombang }}</b></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="25%" class="text-right"> Angkatan Pendaftaran : </td>
-                                            <td>{{ $user->maba->token->angkatan }} /
-                                                {{ $user->maba->token->angkatan + 1 }}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="20%" class="text-right">Nama Lengkap : </td>
+                                            <td width="20%" class="text-right text-bold">NAMA LENGKAP : </td>
                                             <td>{{ $user->maba->biodata->nama_lengkap }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="20%" class="text-right">Email : </td>
+                                            <td width="20%" class="text-right text-bold">EMAIL : </td>
                                             <td>{{ $user->maba->token->email }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="20%" class="text-right"> Tempat/tgl. Lahir : </td>
+                                            <td width="20%" class="text-right text-bold"> TEMPAT TGL LAHIR : </td>
                                             <td>{{ $user->maba->biodata->tempat_lahir }},
                                                 {{ $user->maba->biodata->tanggal_lahir }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="20%" class="text-right"> Jenis kelamin : </td>
+                                            <td width="20%" class="text-right text-bold"> JENIS KELAMIN : </td>
                                             <td>{{ $user->maba->biodata->gender }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="20%" class="text-right"> Agama : </td>
+                                            <td width="20%" class="text-right text-bold">AGAMA : </td>
                                             <td>{{ $user->maba->biodata->agama }}</td>
                                         </tr>
+
+                                       
                                         <tr>
-                                            <td width="20%" class="text-right"> Alamat: </td>
+                                            <td width="20%" class="text-right text-bold"> PROVINSI : </td>
+                                            <td>{{ get_provinsi($user->maba->biodata->provinsi) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%" class="text-right text-bold"> KABUPATEN/KOTA : </td>
+                                            <td>{{ get_kabupaten($user->maba->biodata->kabupaten)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%" class="text-right text-bold"> KECAMATAN : </td>
+                                            <td>{{ get_kecamatan($user->maba->biodata->kecamatan)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%" class="text-right text-bold"> ALAMAT: </td>
                                             <td>{{ $user->maba->biodata->alamat }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="20%" class="text-right"> Telp/HP : </td>
+                                            <td width="20%" class="text-right text-bold"> TELP/HP : </td>
                                             <td>{{ $user->maba->biodata->telepon }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="20%" class="text-right"> Ukuran Baju : </td>
+                                            <td width="20%" class="text-right text-bold"> UKURAN BAJU : </td>
                                             <td>{{ $user->maba->biodata->ukuran_baju }}</td>
                                         </tr>
-                                        <tr class="text-left text-bold">
+                                        <tr class="text-left text-bold bg-green">
                                             <td colspan="2"> JURUSAN YANG DIPILIH</td>
                                         </tr>
                                         <tr>
-                                            <td width="25%" class="text-right">PILIHAN FAKULTAS : </td>
+                                            <td width="25%" class="text-right text-bold ">PILIHAN FAKULTAS : </td>
                                             <td>{{ $user->maba->biodata->getfakultas->name }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="25%" class="text-right">PILIHAN PRODI : </td>
+                                            <td width="25%" class="text-right text-bold">PILIHAN PRODI : </td>
                                             <td>{{ $user->maba->biodata->getprodi->name }}</td>
                                         </tr>
                                         <tr>
-                                            <td width="25%" class="text-right"> GELOMBANG : </td>
-                                            <td> Gelombang KE - <b>{{ $user->maba->biodata->gelombang }}</b></td>
+                                            <td width="25%" class="text-right text-bold"> GELOMBANG : </td>
+                                            <td> Gelombang KE - <b>{{ $user->maba->token->gelombang }}</b></td>
                                         </tr>
                                         <tr>
-                                            <td width="25%" class="text-right"> ANGKATAN : </td>
+                                            <td width="25%" class="text-right text-bold"> ANGKATAN : </td>
                                             <td>{{ $user->maba->token->angkatan }} /
                                                 {{ $user->maba->token->angkatan + 1 }}</td>
                                         </tr>
@@ -111,7 +117,7 @@
                                 </table>
                             </div>
                         </div>
-                       
+
                         <div class="tab-pane" id="tab_2">
                             @if ($user->maba->biodata->ijazah)
                                 <a class="btn btn-block btn-social btn-success"

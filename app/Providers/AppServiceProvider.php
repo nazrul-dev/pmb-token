@@ -1,9 +1,9 @@
 <?php
 namespace App\Providers;
-use ConsoleTVs\Charts\Registrar as Charts;
+
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Jenssegers\Agent\Agent;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -12,22 +12,14 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-    public function boot(Charts $charts)
+    public function boot()
     {
+        Schema::defaultStringLength(191);
         if(config('app.env') === 'production') {
             \URL::forceScheme('https');
         }
-        $charts->register([
-            \App\Charts\ProdiChart::class
-        ]);
-        
-        Blade::if('mobile', function(){
-            $agent = new Agent();
-            if($agent->isPhone() === true){
-                echo 'landscape';
-            }
-           
-        });
+   
+    
 
         Blade::if('maba', function () {
             return auth()->check() && auth()->user()->akses === 'maba';

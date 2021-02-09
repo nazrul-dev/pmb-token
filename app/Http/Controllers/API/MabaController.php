@@ -82,30 +82,5 @@ class MabaController extends Controller
         
     }
 
-    public function test(){
-        $data = Study::get();
-        $test = array();
-        foreach($data as $x) {
-            $jumlah_maba = $this->biodata($x->id);
-            $nama_prodi = $x->name;
-            $dataMaba = [
-                'nama_prodi' => $nama_prodi,
-                'jumlah_maba' => $jumlah_maba
-            ];
-
-            array_push($test, $dataMaba);
-        }
-
-        return $test;
-        
-    }
-
-    protected function biodata($id_prodi) {
-
-        $test = Biodata::where(['prodi' => $id_prodi])->get();
-
-        if($test){
-            return $test->count();
-        }
-    }
+   
 }

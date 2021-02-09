@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PMB UNIPO - SISTIM PENDAFTARAN MAHASISWA DENGAN VALIDASI TOKEN</title>
+    <title>PMB - UNIVERSITAS POHUWATO</title>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{{ asset('AdminLTE2/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -93,8 +93,7 @@
                 @endphp
                 <strong>Copyright &copy; {{ $year . '-' . ($year + 1) }} <a
                         href="https://github.com/labkoding-id">NAZRUL |
-                        LABKODING.ID</a>.</strong> All rights
-                reserved.
+                        LABKODING.ID</a>.</strong>
             </div>
         </footer>
     </div>
@@ -133,54 +132,7 @@
         })();
 
     </script>
-    <!--End of Tawk.to Script-->
-    <!--End of Tawk.to Script-->
-    <!--End of Tawk.to Script-->
-    {{-- <script>
-        
-        var DataProdi = [];
-        var JumlahMaba = [];
-        $.ajax({
-            url: "{{ url('api/biodata') }}",
-            method: 'GET',
-            success: function(res){
-                $.each(res, function(index, value) {
-                    DataProdi.push(value.nama_prodi);
-                    JumlahMaba.push(value.jumlah_maba);
-                })
-                
-                console.log(DataProdi);
-
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    
-                    type: 'bar',
-                    type: 'horizontalBar',
-                    data: {
-                        labels: DataProdi,
-                        datasets: [{
-                            label: 'Jumlah Mahasiswa Baru',
-                            data: JumlahMaba,
-                        }
-                      ]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
-                });
-            },
-        })
-
-
-        
-        
-        </script> --}}
+ 
     @yield('extjs')
 
     {{-- <script>

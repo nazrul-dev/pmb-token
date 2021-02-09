@@ -69,7 +69,7 @@
                         href="{{ route('back.pmb.studi.kouta') }}">Kouta</a></li>
                 <li class="{{ request()->is('back/pmb/pengaturan*') ? 'active' : '' }}"><a
                         href="{{ route('back.pmb.pengaturan') }}">Pengaturan</a></li>
-                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-cetak">Cetak Data </a></li>
+                {{-- <li><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-cetak">Cetak Data </a></li> --}}
             </ul>
         </li>
         @endpanitia
