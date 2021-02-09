@@ -15,11 +15,14 @@ class CetakController extends Controller
     {
         $maba = Maba::with(['token', 'biodata', 'biodata.getfakultas', 'biodata.getprodi'])->find($id);
         $passphoto = 'media/berkas/' . $maba->biodata->passphoto;
-        $qrqode =  QrCode::size(100)->generate(str_replace('/', '-', $maba->biodata->no_registrasi));
+        if(!file_exists(asset($passphoto))){
+            $passphoto  = 'media/nopassphoto.png';
+        }
+       
+        $qrqode =  base64_encode(QrCode::format('png')->size(90)->generate(str_replace('/', '-', $maba->biodata->no_registrasi))) ;
         $watermark = public_path('media/watermark.png');
         $logo = public_path('media/logo.png');
         $pdf = PDF::loadView('cetak.formulir', compact('maba', 'passphoto', 'qrqode', 'watermark', 'logo'));
-
         return $pdf->stream('formulir.pdf');
       
     }

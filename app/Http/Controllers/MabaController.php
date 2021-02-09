@@ -19,7 +19,7 @@ class MabaController extends Controller
     {
         $user = User::with(['maba.biodata'])->find($id);
         $statusberkas = Maba::cekberkas($user->maba->biodata->uuid);
-        if($statusberkas === true){
+        if($statusberkas === true && auth()->user()->akses === 'maba'){
             return redirect()->route('back.maba.show', $user->uuid);
         }
         return view('maba.berkas', compact('user'));
@@ -127,9 +127,9 @@ class MabaController extends Controller
                 if ($prodi->kouta > 1) {
                     $prodi->decrement('kouta', 1);
                 }
-                if($this->pengaturan()['data']->email_account == 1){
-                    $this->send_email_account($validData);
-                }
+                // if($this->pengaturan()['data']->email_account == 1){
+                //     $this->send_email_account($validData);
+                // }
                 
                 return view('afterpendaftaran', compact('validData'));
                

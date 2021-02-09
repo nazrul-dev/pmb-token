@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 
 <head>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Document</title>
     <style>
         .info td {
-            line-height: 34px
+            line-height: 20px
         }
 
         .under {
             line-height: 70px
         }
 
-        body{
+        body {
             background-image: url('{{ $watermark }}');
-            background-size: contain; /* Make background take entire page */
-            background-position: center; /* Center Background */
+            background-size: contain;
+            /* Make background take entire page */
+            background-position: center;
+            /* Center Background */
             background-repeat: no-repeat;
             background-size: 80%;
-          
+
         }
 
     </style>
 </head>
 
 <body>
-   
-    <table >
+
+    <table>
         <tr>
-            <td width="30px"><img width="160" height="160" src="{{ $logo }}" alt=""></td>
-            <td  style="padding-left: 1rem">
+            <td width="30px"><img width="90" height="90" src="{{ $logo }}" alt=""></td>
+            <td style="padding-left: 1rem">
                 <h2 style="margin-bottom: 0px"><b>UNIVERSITAS POHUWATO</b></h2>
                 <address>Jln.Trans Sulawesi No.147, Desa Palopo, Kecamatan Marisa, Kabupaten Pohuwato</address>
 
                 <span>https://www.unipo.ac.id</span>
             </td>
             <td width="30px">
-                {{ $qrqode }}<img width="160" height="160" src="{{ $logo }}" alt="">
+                <img src="data:image/png;base64, {{ $qrqode }} ">
             </td>
 
         </tr>
@@ -48,7 +50,8 @@
     <h3 style="text-align: center; margin-top: 0px; margin-bottom: 0px">TAHUN AKADEMIK {{ $maba->token->angkatan }} /
         {{ $maba->token->angkatan + 1 }}</h3>
     <h6 style="text-align: center; margin-top: 0px">NO REGISTRASI PENDAFTARAN :
-        <b>{{ $maba->biodata->no_registrasi }}</b></h6>
+        <b>{{ $maba->biodata->no_registrasi }}</b>
+    </h6>
     <table class="info" style="margin-top: 30px" width="100%">
         <tr>
             <td width="35%" style="padding-left:3rem;">NO TOKEN</td>
@@ -130,14 +133,14 @@
     <hr style="margin-bottom: 1px">
     <hr style="margin-top: 0px">
     <table style="margin-top:30px" width="100%">
+
         <tr>
-            <td width="25%" style="text-align: center"> <img width="140" height="200" style="border: 2px solid"
-                    src="{{ public_path($passphoto) }}" alt=""></td>
+            <td width="25%" style="text-align: center"> <img width="120" height="170" style="border: 2px solid" src="{{ asset($passphoto) }}" alt=""> </td>
 
             <td colspan="2" style="vertical-align: text-top; text-align:center;">
                 <span>Pohuwato, {{ date('d-m-Y') }}</span><br>
-                <p>Calon Mahasiswa/i,</p>
-                <br><br><br><br><br><br><br>
+                <p style="margin-top:0px">Calon Mahasiswa/i,</p>
+                <br><br><br>
                 <hr style="vertical-align:text-bottom;" width="40%">
                 {{ Str::upper($maba->biodata->nama_lengkap) }}
             </td>
